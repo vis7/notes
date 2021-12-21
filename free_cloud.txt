@@ -1,0 +1,4 @@
+free cloud service for invoice_ocr aman and pallavi
+- https://aws.amazon.com/getting-started/hands-on/control-your-costs-free-tier-budgets/
+- https://azure.microsoft.com/en-in/free/students/
+- https://cloud.google.com/free/docs/gcp-free-tier

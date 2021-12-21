@@ -1,0 +1,9 @@
+Axes object is the region of the image with the data space. A given figure can contain many Axes, but a given Axes object can only be in one Figure. The Axes contains two (or three in the case of 3D) Axis objects. The Axes class and its member functions are the primary entry point to working with the OO interface.
+
+Axes object is added to figure by calling the add_axes() method. It returns the axes object and adds an axes at position rect [left, bottom, width, height] where all quantities are in fractions of figure width and height.
+
+
+for refering all fmt argument for graph style
+https://matplotlib.org/3.3.2/api/_as_gen/matplotlib.pyplot.plot.html
+
+

@@ -1,0 +1,56 @@
+# make changes in project for makking it deployment ready
+=> in setting.py
+ALLOWED_HOSTS = ['*']
+
+DEBUG = False
+
+STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'
+
+# push project to git
+# first time push
+- create repository in github
+
+# go to directory
+- git init
+- git add . # this will add all files of project
+- git commit -m "First commit"
+- git remote add origin <remote repository URL> # from our newly created repository
+- git remote -v # verify link
+- git push origin master # push changes
+
+
+# login to server and clone project
+user@ip
+
+# create virtualenv and activate it and install any dependency required
+
+# manage db (sqlite)
+python manage.py makemigrations
+python manage.py migrate
+
+# collect static files 
+python manage.py collectstatic
+
+## consider this as first checkpoint
+# now run it by bellow and check in ip of machine that project running properly like 31.220.55.70:8000
+python manage.py runserver 0:8000 
+
+# make apache2 owner of directory and give it required permission
+sudo chown -R www-data:www-data demo_site
+sudo chmod -R 755 demo_site
+
+# take copy of config file and do change bellow edits and put it inside "/etc/apache2/sites-available/"
+a2ensite demosite.conf 
+
+# reload server 
+sudo service apache2 reload/restart
+sudo systemctl restart apache2
+
+# Hurray site is live check it
+
+# below is error log files 
+/var/log/apache2

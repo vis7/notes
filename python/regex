@@ -1,0 +1,3 @@
+# regex syntax for ANDing multiple conditions
+^(?=.*one)(?=.*two)(?=.*three).*$
+https://stackoverflow.com/questions/3533408/regex-i-want-this-and-that-and-that-in-any-order

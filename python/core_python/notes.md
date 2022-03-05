@@ -90,7 +90,7 @@ Bitwise NOT	                ~p1	            p1.__invert__()
 
 
 
-- Overloading the + Operator
+- Overloading the Comparision Operator
 # overloading the less than operator
 class Point:
     def __init__(self, x=0, y=0):

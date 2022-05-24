@@ -1,0 +1,7 @@
+# elementwise product
+A * B     
+np.multiply(A,B)
+
+# matrix product / matrix multiplication
+A @ B
+A.dot(B)

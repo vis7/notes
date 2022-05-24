@@ -1,0 +1,99 @@
+https://medium.com/djangotube/django-roles-groups-and-permissions-introduction-a54d1070544
+https://stackoverflow.com/questions/6288661/adding-a-user-to-a-group-in-django
+https://realpython.com/manage-users-in-django-admin/
+https://www.botreetechnologies.com/blog/django-user-groups-and-permission/
+
+
+# how to impliment
+-> extend UserAbstract model and create roles using boolean value
+from django.contrib.auth.models import AbstractUser
+class User(AbstractUser):
+    is_user = models.BooleanField(default=False)
+    is_inspector = models.BooleanField(default=False)
+
+-> add one to one field in your user model mapping to User
+class CUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    name = models.CharField(max_length=32)
+
+-> change auth_model in settings.py
+AUTH_USER_MODEL = "car_toeing.User"
+				   <app_name>.<Model>
+
+-> do migrations if getting error do fresh migrations
+delete db
+find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+find . -path "*/migrations/*.pyc"  -delete
+then do migrations
+
+-> create groups and add required permissions from admin site
+
+-> create or configure view and user for usercreation if necessory
+from django.views.generic import CreateView
+class UserSignupView(CreateView):
+    model = User
+    form_class = UserSignUpForm
+    template_name = 'registration/signup.html'
+
+    def get_context_data(self, **kwargs):
+        kwargs['user_type'] = 'cuser'
+        return super().get_context_data(**kwargs)
+
+
+-> override save method in form which create user
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import Group
+from django import forms
+from django.db import transaction
+class UserSignUpForm(UserCreationForm):
+    name = forms.CharField(max_length=32)
+
+    class Meta(UserCreationForm.Meta):
+        model = User
+    
+    @transaction.atomic
+    def save(self):
+        user = super().save(commit=False)
+        user.is_user = True
+        user.save()
+        c_user = CUser.objects.create(user=user)
+        c_user.name = self.cleaned_data.get('name')
+        g_cuser = Group.objects.get(name='CUser')
+        user.groups.add(g_cuser)
+        user.save()
+        c_user.save()
+        return user
+
+
+-> you can also add user to group so that he will have permissions when new user is 
+created useing above form
+
+-> alternatively you can also use form_valid() instad of post signal
+
+-> check newly created user's all group and permissions (user.get_all_permission)
+
+## allowing only user of specific type to access view
+
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+
+# making this view available to only citizen
+@user_passes_test(lambda u: u.groups.filter(name='CitizenG').exists())
+@login_required
+def user_detail_view(request, pk):
+    user = get_object_or_404(CUser, pk=pk)
+    context = {
+        'user': user
+    }
+    return render(request, 'car_toeing/user_detail.html', context)
+
+
+# making this view available to only citizen
+
+class CarDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    template_name = 'car_toeing/car_detail.html'
+    model = Car
+
+    def test_func(self):
+        print('helo from test_func')
+        return self.request.user.groups.filter(name='CitizenG').exists()

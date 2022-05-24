@@ -1,0 +1,6 @@
+images/css/js files are refer as staic files
+
+- You can sepecify them like below
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+

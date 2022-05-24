@@ -1,0 +1,46 @@
+# add path in setting.py
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# adding urls for uploaded files
+from django.conf import settings # new
+from django.conf.urls.static import static # new
+
+
+if settings.DEBUG: # new
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+# in model
+cover = models.ImageField(upload_to='images/')
+
+
+# can upload image from admin or from model form by below view and template
+
+# view for uploading from model form 
+def user_create(request):
+    if request.method == 'POST':
+        form = UserForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            form = UserForm()
+        else:
+            print(form.errors)
+    else:
+        form = UserForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'car_toeing/user_create.html', context)
+
+# template
+<form action="" method="post" enctype="multipart/form-data"> {% csrf_token %}
+    {{ form.as_p }}
+    <input type='submit' value='save'>
+</form>
+
+
+
+
+# see uploaded image from detail view
+<img src="{{user.license_img.url}}">

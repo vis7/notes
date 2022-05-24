@@ -1,0 +1,53 @@
+# user authentication
+
+path('accounts/', include('django.contrib.auth.urls')) # this will give below urls
+
+accounts/login/ [name='login']
+accounts/logout/ [name='logout']
+accounts/password_change/ [name='password_change']
+accounts/password_change/done/ [name='password_change_done']
+accounts/password_reset/ [name='password_reset']
+accounts/password_reset/done/ [name='password_reset_done']
+accounts/reset/<uidb64>/<token>/ [name='password_reset_confirm']
+accounts/reset/done/ [name='password_reset_complete']
+
+
+# config/settings.py
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/' # new
+
+TEMPLATES = [
+    {
+        ...
+        'DIRS': [str(BASE_DIR.joinpath('templates'))],
+        ...
+    },
+]
+
+# accounts/views.py
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views import generic
+
+
+class SignUpView(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/signup.html'
+
+
+# should have template/registration/login.html
+<!-- templates/registration/login.html -->
+<h2>Log In</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Log In</button>
+</form>
+
+
+# You can use below for local testing you can also use settings in sendmail and send mail for password rest too
+# add this for sending email # forgot password and reset password
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
+

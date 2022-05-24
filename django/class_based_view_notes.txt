@@ -1,0 +1,31 @@
+# common attribute in all class
+template_name
+
+# DetailView
+model attribute and get_object()
+
+# ListView
+queryset attribute or get_object()
+
+# CreateView 
+-> attribute
+form_class
+-> method
+form_valid() (optional if we want to do extra validation on form submit)
+
+# UpdateView and DeleteView
+-> attribute
+form_class
+model or get_object()
+
+-> method
+form_valid() (optional if we want to do extra validation on form submit)
+
+
+# DeleteView
+success_url attribute or get_success_url()
+model or get_object()
+
+
+
+

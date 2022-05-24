@@ -1,0 +1,43 @@
+A template contains the static parts of the desired HTML output as well as some special syntax describing how dynamic content will be inserted.
+
+most frequently used template tags
+-> if else endif
+{% if condition %}
+
+{% elif condition %}
+
+{% else %}
+
+{% endif %}
+
+-> for 
+{% for item in item_list %}
+    # you can use item hear
+{% endfor %}
+
+-> csrf
+{% csrf_token %}
+
+-> comment
+{% comment %} this is comment {% endcomment %}
+
+-> url
+{% url 'polls:detail' question.id %}
+
+# context variable
+{{ variable }} # this is variable defined in view and passed to template in context variable
+
+# include and extends with block
+
+
+# filters
+https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#built-in-filter-reference
+
+
+
+# static file related
+{% static %}
+
+- just spcify url in url tag to show static file
+
+

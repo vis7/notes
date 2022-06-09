@@ -1,0 +1,1 @@
+CDK is Infrastructure as Code, which means you can write code to create AWS resources like API Gateway, DynamoDB or Lambda. On the other hand SDK helps to interact with these AWS resources for ex: fetch the items from DynamoDB or list the contents of S3 bucket.

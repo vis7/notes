@@ -5,7 +5,7 @@ template_name
 model attribute and get_object()
 
 # ListView
-queryset attribute or get_object()
+queryset attribute
 
 # CreateView 
 -> attribute

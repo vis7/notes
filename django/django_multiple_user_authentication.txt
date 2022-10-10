@@ -66,7 +66,7 @@ class UserSignUpForm(UserCreationForm):
 
 
 -> you can also add user to group so that he will have permissions when new user is 
-created useing above form
+created using above form
 
 -> alternatively you can also use form_valid() instad of post signal
 

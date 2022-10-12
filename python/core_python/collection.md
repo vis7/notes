@@ -1,7 +1,5 @@
 # collection
-- namedtuple() - factory function for creating tuple subclasses with named fields
-
-The need for this feature arose because using indices to access the values in a regular tuple is annoying, difficult to read, and error-prone. This is especially true if the tuple you’re working with has several items and is constructed far away from where you’re using it.
+- namedtuple() - factory function for creating tuple subclasses with named fields. The need for this feature arose because using indices to access the values in a regular tuple is annoying, difficult to read, and error-prone. This is especially true if the tuple you’re working with has several items and is constructed far away from where you’re using it.
 - deque - list-like container with fast appends and pops on either end
 - ChainMap - A dictionary-like class that allows treating a number of mappings as a single dictionary object
 - Counter - A dictionary subclass that supports convenient counting of unique items in a sequence or iterable

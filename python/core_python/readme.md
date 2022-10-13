@@ -2,7 +2,7 @@
 https://www.programiz.com/python-programming
 
 - [X] oops
-- [X] advance concepts (iterator, generator, closure, decorator, property, regex)
+- [ ] advance concepts (iterator, generator, closure, decorator, property, regex)
 - [X] Collection and popular datastructures
 - [ ] most popular modules (inbuilt modules)
 
@@ -45,4 +45,8 @@ built in functions
 dunder methods
 gc
 asyncio
+
+# To do
+- add notes for regex, datetime
+
 

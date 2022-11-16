@@ -1,0 +1,29 @@
+tell me about yourself ? 
+projects on which you worked on ?
+list vs tupple
+lambda function
+decorators 
+generators
+map, filter and reduce
+what is mvt ? explain it. mvt vs mvc.
+features of django
+what is oop? explain it's concepts.
+function based view vs class based views
+prefetch_selected vs selected
+
+python datatypes, collection and it's method
+functools and partial
+regex
+
+do competitive programming
+imp module methods
+datetime, sys, os, json, pickle, math
+
+# ds
+numpy, pandas, matplotlib, 
+
+# dl
+tensorflow, sklearn
+
+
+

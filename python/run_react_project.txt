@@ -1,0 +1,4 @@
+clone repo
+create .env file
+yarn install
+yarn start

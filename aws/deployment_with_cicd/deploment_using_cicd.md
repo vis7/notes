@@ -11,6 +11,12 @@ AWS_SSH_KEY - content of (.pem file (private key at the time of creating instanc
 
 That's It deployment using cicd is done.
 
+- content of deployment.sh
+```
+# restart ngnix
+sudo systemctl restart nginx
+```
+
 # make website secure using API Gateway
 - create API Gateway
 - http api (It can be any) -> build -> give name -> next util you can go (It will create and add default stage) -> create

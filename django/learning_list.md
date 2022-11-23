@@ -8,8 +8,32 @@ authentication
 signals
 pagination
 middleware
+unit test
 
 
 - how to increase performace of application, how to make application scalable
 pre_fetch()
+
+
+# performance
+https://www.netguru.com/blog/django-performance-optimization (sort)
+https://www.esparkinfo.com/blog/django-performance-tips.html (in details - get overview and do practicals)
+https://docs.djangoproject.com/en/4.1/topics/performance/
+https://docs.djangoproject.com/en/4.1/topics/cache/
+
+
+https://github.com/jazzband/django-silk
+
+
+# tips
+use cache and you should also bear in mind that all static content should be served by an HTTP cache server.
+
+Django sessions settings in order to process requests faster. Instead of storing user sessions in a slow database, which is the default mode in Django, you would be better off storing session data in memory. Just use the command “SESSION_ENGINE = ‘django.contrib.sessions.backends.cache” and relish in the improved performance that your app will get from a cached-based session backend.
+
+use
+select_related() - “this is a performance booster which results in a single, more complex, query” - utilizing it also means that the later use of any foreign-key relationships won’t require database queries;
+
+prefetch_related() - this allows users to prefetch many-to-many and many-to-one objects and, as a result, improves the performance of the entire framework.
+
+Use performance booster to to handle big number of requests
 

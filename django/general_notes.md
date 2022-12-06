@@ -14,3 +14,6 @@ rabbitmq
 stripe
 
 
+# notes
+- User is able to login only if it is active
+- form_valid method is overridden in view rather then form

@@ -26,4 +26,7 @@ numpy, pandas, matplotlib,
 tensorflow, sklearn
 
 
+how to create custorm template tag ? filter ?
+populer template tag
+
 

@@ -1,7 +1,7 @@
 Python module search path
 - built in modules
 - sys.path
- The search is in this order.
+- serach in current file position
 
 The current directory.
 PYTHONPATH (an environment variable with a list of directories).

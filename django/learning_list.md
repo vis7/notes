@@ -47,6 +47,9 @@ select_related() - “this is a performance booster which results in a single, m
 
 prefetch_related() - this allows users to prefetch many-to-many and many-to-one objects and, as a result, improves the performance of the entire framework.
 
+@cached_property - The @cached_property decorator caches the result of a method with a single self argument as a property. The cached result will persist as long as the instance does, so if the instance is passed around and the function subsequently invoked, the cached result will be returned.
+
+
 Use performance booster to to handle big number of requests
 
 # Questions

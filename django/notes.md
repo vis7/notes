@@ -21,6 +21,8 @@ from django.forms import formset_factory
 
 # creating a formset and 5 instances of GeeksForm
 GeeksFormSet = formset_factory(GeeksForm, extra = 5) # GeekForm is normal form whose 5 instance will be created
-formset = GeeksFormSet()
+formset = GeeksFormSet() # we can now use it as normal form
 ```
 
+# authentication
+https://studygyaan.com/django/how-to-extend-django-user-model

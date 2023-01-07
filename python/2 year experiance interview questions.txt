@@ -29,4 +29,11 @@ tensorflow, sklearn
 how to create custorm template tag ? filter ?
 populer template tag
 
+# tools
+django debug toolbar - 
+https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
+
+django profilination - (to optimize url) 
+https://medium.com/kami-people/profiling-in-django-9f4d403a394f 
+
 

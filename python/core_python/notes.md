@@ -8,6 +8,7 @@ PYTHONPATH (an environment variable with a list of directories).
 The installation-dependent default directory
 
 To reload the module
+>>> import imp
 >>> import my_module
 >>> imp.reload(my_module)
 
@@ -287,3 +288,11 @@ Whenever we assign or retrieve any object attribute like temperature as shown ab
 {'temperature': 37}
 Therefore, man.temperature internally becomes man.__dict__['temperature']
 
+
+# notes
+The discard() method removes the specified item from the set.
+
+This method is different from the remove() method, because the remove() method will raise an error if the specified item does not exist, and the discard() method will not.
+
+
+https://www.geeksforgeeks.org/class-method-vs-static-method-python/

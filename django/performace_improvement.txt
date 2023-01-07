@@ -1,0 +1,22 @@
+# tips
+use cache and you should also bear in mind that all static content should be served by an HTTP cache server.
+
+Django sessions settings in order to process requests faster. Instead of storing user sessions in a slow database, which is the default mode in Django, you would be better off storing session data in memory. Just use the command “SESSION_ENGINE = ‘django.contrib.sessions.backends.cache” and relish in the improved performance that your app will get from a cached-based session backend.
+
+use
+select_related() - “this is a performance booster which results in a single, more complex, query” - utilizing it also means that the later use of any foreign-key relationships won’t require database queries;
+
+prefetch_related() - this allows users to prefetch many-to-many and many-to-one objects and, as a result, improves the performance of the entire framework.
+
+@cached_property - The @cached_property decorator caches the result of a method with a single self argument as a property. The cached result will persist as long as the instance does, so if the instance is passed around and the function subsequently invoked, the cached result will be returned.
+
+https://medium.com/geekculture/optimize-your-django-application-for-better-performance-5681255561cb
+
+- To measure performance of API
+loadtest -n 100 -k http://127.0.0.1:8000/cookbook/
+
+https://realpython.com/caching-in-django-with-redis/
+
+try to remove any for loops if url to fetch data from database.
+optimize orm queries
+

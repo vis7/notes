@@ -26,3 +26,21 @@ formset = GeeksFormSet() # we can now use it as normal form
 
 # authentication
 https://studygyaan.com/django/how-to-extend-django-user-model
+
+
+#
+- To dump data:
+```
+python manage.py dumpdata app.model_name --indent 4 > fixtures/model_name.json
+```
+- To load data:
+```
+python manage.py loaddata fixtures/model_name.json --app app.model_name
+```
+
+- force login user
+self.client.force_login(user1)
+self.client.login(username='user1', password='Use@1234')
+
+- In django test objects created are stay only in that function (test case). In other function that are not available.
+

@@ -1,6 +1,6 @@
 brief introduction about yourself and the projects you have worked on
 
-
+# django
 diffrence between flask, drf and fast api
 limit number of request our api can return
 how can we impliment middleware
@@ -9,6 +9,7 @@ pagination how to implement (django and drf)
 improving performance of single api from 700 ms to 100 ms
 nested serializer
 
+# python
 generator and iterater what they are how to use them 
 decorators - also examples
 property in python
@@ -33,6 +34,10 @@ inheritance in djanog (model inheritance, proxy inheritance) (https://buildatsca
 authentication vs authorization 
 serializers type in drf
 apiview vs viewset diffrence
+how to use sql queries in django
+how can I use authentication in such a way that user can login from one device only
+types of authentication
+
 
 *) what is mixin ? when to use ? how it is diffrent from class ? (https://stackoverflow.com/questions/860245/mixin-vs-inheritance)
 -> Mixins are sometimes described as being "included" rather than "inherited". In short, the key difference from an inheritance is that mix-ins does NOT need to have a "is-a" relationship like in inheritance. From the implementation point of view, you can think it as an interface with implementations.
@@ -68,4 +73,12 @@ q = Employee.objects.exclude(manager__isnull=True).filter(salary_gt=F(manager__s
 ```
 
 django 4.1 updates
+
+# suggetions
+- go in depth of things you knew, do practicals (annotations, orm, serializer)
+
+# suggetions (Non Technical aspects)
+- calm, confidence, decipline, honest, positive attitude
+
+
 

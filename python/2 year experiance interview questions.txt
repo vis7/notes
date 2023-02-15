@@ -1,5 +1,8 @@
+
 tell me about yourself ? 
 projects on which you worked on ?
+
+# Python
 list vs tupple
 lambda function
 decorators 
@@ -8,12 +11,16 @@ map, filter and reduce
 what is mvt ? explain it. mvt vs mvc.
 features of django
 what is oop? explain it's concepts.
-function based view vs class based views
-prefetch_selected vs selected
-
 python datatypes, collection and it's method
 functools and partial
 regex
+
+# Django
+function based view vs class based views
+prefetch_selected vs selected
+how to create custorm template tag ? filter ?
+populer template tag
+
 
 do competitive programming
 imp module methods
@@ -26,8 +33,7 @@ numpy, pandas, matplotlib,
 tensorflow, sklearn
 
 
-how to create custorm template tag ? filter ?
-populer template tag
+
 
 # tools
 django debug toolbar - 

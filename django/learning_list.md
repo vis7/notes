@@ -8,6 +8,8 @@ Django ORM -
 - https://www.django-rest-framework.org/api-guide/serializers/
 - https://www.django-rest-framework.org/api-guide/views/
 - https://www.django-rest-framework.org/api-guide/viewsets/
+- https://www.django-rest-framework.org/api-guide/permissions/ (permissions)
+- https://www.django-rest-framework.org/api-guide/authentication/
 nested serializer
 
 # practice / revise
@@ -90,4 +92,9 @@ https://docs.djangoproject.com/en/4.1/topics/conditional-view-processing/
 # Make One project and do practicals of new thing learned
 like creating branch of todo and add things in that
 work on project idea which can be useful to all (for side husstle)
+
+
+# new learning list
+- migrations (fake, what if you want to change auth model in between how to handle in produnction environment)
+
 

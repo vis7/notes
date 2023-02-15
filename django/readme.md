@@ -19,3 +19,9 @@ squashing, reversing migrations
 # project covering drf concepts
 
 
+# todo
+channels (real time chat application) - 
+https://www.inexture.com/chat-app-django-channels/
+https://www.geeksforgeeks.org/how-to-throttle-api-with-django-rest-framework/
+
+

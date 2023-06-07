@@ -2,7 +2,7 @@
 
 from rest_framework import serializers
 - other important serializer class
-HyperlinkedModelSerializer, HyperlinkedRelatedField
+HyperlinkedModelSerializer
 
 serializers.Serializer() # normal serializer
 It impliment create(), update() internally
@@ -11,7 +11,7 @@ serializers.ModelSerializer
 
 serializers.<Model>Field() # same fields as with django.models eg. CharField, IntegerField etc.
 - other important fileds
-PrimaryKeyRelatedField
+PrimaryKeyRelatedField, HyperlinkedRelatedField
 
 
 
@@ -40,6 +40,9 @@ REST framework provides two wrappers you can use to write API views.
 The @api_view decorator for working with function based views.
 The APIView class for working with class-based views.
 
+- These wrappers provide a few bits of functionality such as making sure you receive Request instances in your view, and adding context to Response objects so that content negotiation can be performed.
+
+The wrappers also provide behaviour such as returning 405 Method Not Allowed responses when appropriate, and handling any ParseError exceptions that occur when accessing request.data with malformed input.
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response

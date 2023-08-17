@@ -44,3 +44,59 @@ self.client.login(username='user1', password='Use@1234')
 
 - In django test objects created are stay only in that function (test case). In other function that are not available.
 
+
+# Permission
+Token Authentication
+from rest_framework.authtoken import views
+urlpatterns += [
+    path('api-token-auth/', views.obtain_auth_token)
+]
+
+f successfully authenticated, TokenAuthentication provides the following credentials.
+
+request.user will be a Django User instance.
+request.auth will be a rest_framework.authtoken.models.Token instance.
+Unauthenticated responses that are denied permission will result in an HTTP 401 Unauthorized response with an appropriate WWW-Authenticate header.
+
+login - authentication
+roles - authorization
+
+
+from rest_framework import permissions
+
+class BlocklistPermission(permissions.BasePermission):
+    """
+    Global permission check for blocked IPs.
+    """
+
+    def has_permission(self, request, view):
+        ip_addr = request.META['REMOTE_ADDR']
+        blocked = Blocklist.objects.filter(ip_addr=ip_addr).exists()
+        return not blocked
+
+class IsOwnerOrReadOnly(permissions.BasePermission):
+    """
+    Object-level permission to only allow owners of an object to edit it.
+    Assumes the model instance has an `owner` attribute.
+    """
+
+    def has_object_permission(self, request, view, obj):
+        # Read permissions are allowed to any request,
+        # so we'll always allow GET, HEAD or OPTIONS requests.
+        if request.method in permissions.SAFE_METHODS:
+            return True
+
+        # Instance must have an attribute named `owner`.
+        return obj.owner == request.user
+
+
+# General
++ https://stackoverflow.com/questions/31038742/pass-request-context-to-serializer-from-viewset-in-django-rest-framework
++ first validate_field run then validate method run
+
+token = Token.objects.get_or_create(user=request.user)[0].key
+
+
+# to start ngrok
+ngrok http 8000
+

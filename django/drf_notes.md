@@ -166,10 +166,14 @@ https://www.django-rest-framework.org/api-guide/serializers/
 - view
 - viewset
 - authentication and permissions
-
+- serializer_fields
 
 # other 
 https://www.cdrf.co/
+
+# serializer Fields
+# core arguments
+required - Defaults to True. If you're using Model Serializer default value will be False if you have specified blank=True or default or null=True at your field in your Model.
 
 
 

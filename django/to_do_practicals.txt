@@ -1,0 +1,5 @@
+# Practical To Do
+https://www.django-rest-framework.org/api-guide/fields/#custom-fields
+
++ debug code while runing request and returning response, what functions and methods are being called
++ django explain GenericForeignKey (do practical)

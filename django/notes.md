@@ -90,6 +90,10 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
         return obj.owner == request.user
 
 
+
+# to start ngrok
+ngrok http 8000
+
 # General
 + https://stackoverflow.com/questions/31038742/pass-request-context-to-serializer-from-viewset-in-django-rest-framework
 + first validate_field run then validate method run
@@ -97,6 +101,10 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 token = Token.objects.get_or_create(user=request.user)[0].key
 
 
-# to start ngrok
-ngrok http 8000
 
+
+- first values will be store in db, second will be shown to users
+MANIFEST_TYPES = (
+    (LOCAL, 'Local'),
+    (INTER_BRANCH, 'Inter Branch')
+)

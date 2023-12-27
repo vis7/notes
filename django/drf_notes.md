@@ -175,5 +175,70 @@ https://www.cdrf.co/
 # core arguments
 required - Defaults to True. If you're using Model Serializer default value will be False if you have specified blank=True or default or null=True at your field in your Model.
 
+# paginate request data
+def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
 
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+
+# General
+- write_only, read_only field - incorrect one make error which is deficult to track and debug. so just try changing key. (Caution)
+- CSRF validation will only apply to any session authenticated views
+- we can add extra data which we want to show in frontend in api response, we can add it in to_representation(), we can also override data that we are showing by default, in to_representation()
+
+
+# DRF Fields
+source - Defaults to the name of the field.
+
+
+from rest_framework import serializers
+
+class MySerializer(serializers.Serializer):
+    my_field = serializers.CharField(initial="initial_value")
+
+    def to_representation(self, instance):
+        initial_value = self.fields["my_field"].initial
+        # Now, 'initial_value' contains the value set in the 'initial' argument
+
+        # Your remaining to_representation logic here
+        # ...
+
+        return representation
+    
+
+Remember that the to_representation method is called when converting the serializer data to a representation that can be rendered, such as when serializing data for a response. If you need to access the initial value during the validation or deserialization process, you might use to_internal_value instead.
+
+
+
+style
+A dictionary of key-value pairs that can be used to control how renderers should render the field.
+
+Two examples here are 'input_type' and 'base_template':
+
+# Use <input type="password"> for the input.
+password = serializers.CharField(
+    style={'input_type': 'password'}
+)
+
+# Use a radio input instead of a select input.
+color_channel = serializers.ChoiceField(
+    choices=['red', 'green', 'blue'],
+    style={'base_template': 'radio.html'}
+)
+
+
+Boolean field - blank kwarg removed, default required=True
+
+
++ Writable nested serializers - By default nested serializers are read-only. If you want to support write-operations to a nested serializer field you'll need to create create() and/or update() methods in order to explicitly specify how the child relationships should be saved:
+
+
+# best Reference Material
+cdrf.co
 

@@ -296,3 +296,41 @@ This method is different from the remove() method, because the remove() method w
 
 
 https://www.geeksforgeeks.org/class-method-vs-static-method-python/
+
+# python
+txt = ",,,,,ssaaww.....banana"
+
+x = txt.lstrip(",.asw")
+
+print(x)
+
+=> banana
+
+# walrus operator
+Introduced in python 3.8, the walrus operator, (:=), formally known as the assignment expression operator, offers a way to assign to variables within an expression, including variables that do not exist yet. As seen above, with the simple assignment operator (=), we assigned num = 15 in the context of a stand-alone statement.
+
+An expression evaluates to a value. A statement does something.
+
+In other words, the walrus operator allows us to both assign a value to a variable, and to return that value, all in the same expression. The name is due to its similarity to the eyes and tusks of a Walrus on its side.
+
+name := expr
+
+assigne value if not exist, compare if exist 
+
+
+>>> num1 = 15 
+>>> if num2:= num1:
+...     print('yes')
+... 
+yes
+>>> num2
+15
+
+
+expr is evaluated and then assigned to the variable name. That value will also be returned.
+
+
+
+>>> print(num:=15)
+15
+

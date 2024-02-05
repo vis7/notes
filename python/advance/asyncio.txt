@@ -1,0 +1,67 @@
+# async program (for most of the cases)
+coroutine is a function that can suspend its execution before reaching return, and it can indirectly pass control to another coroutine for some time.
+
+That is, time.sleep() can represent any time-consuming blocking function call, while asyncio.sleep() is used to stand in for a non-blocking call (but one that also takes some time to complete)
+
+async with and async for are also valid, and you’ll see them later on.
+
+
+A function that you introduce with async def is a coroutine. It may use await, return, or yield, but all of these are optional. Declaring async def noop(): pass is valid:
+
+Using await and/or return creates a coroutine function. To call a coroutine function, you must await it to get its results.
+
+It is less common (and only recently legal in Python) to use yield in an async def block. This creates an asynchronous generator, which you iterate over with async for. 
+
+
+
+
+async def f(x):
+    y = await z(x)  # OK - `await` and `return` allowed in coroutines
+    return y
+
+async def g(x):
+    yield x  # OK - this is an async generator
+
+async def m(x):
+    yield from gen(x)  # No - SyntaxError
+
+def m(x):
+    y = await z(x)  # Still no - SyntaxError (no `async def` here)
+    return y
+
+If you’re writing any code yourself, prefer native coroutines for the sake of being explicit rather than implicit. Generator-based coroutines will be removed in Python 3.10.
+
+
+(But remember that yield from x() is just syntactic sugar to replace for i in x(): yield i.)
+
+>>> import asyncio
+
+>>> async def main():
+...     print("Hello ...")
+...     await asyncio.sleep(1)
+...     print("World!")
+
+>>> routine = main()
+>>> asyncio.run(routine)
+
+
+# managing the asyncio event loop, with get_event_loop().
+loop = asyncio.get_event_loop()
+try:
+    loop.run_until_complete(main())
+finally:
+    loop.close()
+
+
+asyncio ships with two different event loop implementations: SelectorEventLoop and ProactorEventLoop.
+
+
+
+asyncio.sleep()
+asycnio.gather()
+asyncio.as_completed((t, t2)) - ot return task as completed rather than gather which return when all tasks completed
+asyncio.run()
+task = asyncio.create_task() # it takes list of tasks
+
+task.done()
+

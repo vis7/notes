@@ -56,6 +56,7 @@ f successfully authenticated, TokenAuthentication provides the following credent
 
 request.user will be a Django User instance.
 request.auth will be a rest_framework.authtoken.models.Token instance.
+
 Unauthenticated responses that are denied permission will result in an HTTP 401 Unauthorized response with an appropriate WWW-Authenticate header.
 
 login - authentication

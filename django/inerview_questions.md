@@ -66,7 +66,7 @@ class Employee(models.Model):
 # queryset
 from django.db.modesl import Q, F
 
-q = Employee.objects.exclude(manager__isnull=True).filter(salary_gt=F(manager__salary))
+q = Employee.objects.exclude(manager__isnull=True).filter(salary__gt=F(manager__salary))
 
 # Share this in email
 

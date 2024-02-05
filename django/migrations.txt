@@ -10,7 +10,7 @@ Because migrations are stored in version control, you’ll occasionally come acr
 
 Don’t worry - the numbers are just there for developers’ reference, Django just cares that each migration has a different name. Migrations specify which other migrations they depend on - including earlier migrations in the same app - in the file, so it’s possible to detect when there’s two new migrations for the same app that aren’t ordered.
 
-
+ 
 Reversing migrations¶
 Migrations can be reversed with migrate by passing the number of the previous migration. For example, to reverse migration books.0003:
 

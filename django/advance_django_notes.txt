@@ -114,3 +114,18 @@ connection_created
 - RabbitMQ is a message broker: it accepts and forwards messages. You can think about it as a post office: when you put the mail that you want posting in a post box, you can be sure that the letter carrier will eventually deliver the mail to your recipient. In this analogy, RabbitMQ is a post box, a post office, and a letter carrier.
 
 
+def to_representation(self, instance):
+    """Convert `username` to lowercase."""
+    ret = super().to_representation(instance)
+    ret['username'] = ret['username'].lower()
+    return ret
+
+
+
+Like Django's Model and ModelForm classes, the inner Meta class on serializers does not implicitly inherit from it's parents' inner Meta classes. If you want the Meta class to inherit from a parent class you must do so explicitly. For example:
+
+class AccountSerializer(MyBaseSerializer):
+    class Meta(MyBaseSerializer.Meta):
+        model = Account
+
+

@@ -1,0 +1,25 @@
+it is suppose to be part of code
+postgresql is most capable of all for schema  in django
+
+If you want to give the migration(s) a meaningful name instead of a generated one, you can use the makemigrations --name option:
+$ python manage.py makemigrations --name changed_my_model your_app_label
+
+
+
+Because migrations are stored in version control, you’ll occasionally come across situations where you and another developer have both committed a migration to the same app at the same time, resulting in two migrations with the same number.
+
+Don’t worry - the numbers are just there for developers’ reference, Django just cares that each migration has a different name. Migrations specify which other migrations they depend on - including earlier migrations in the same app - in the file, so it’s possible to detect when there’s two new migrations for the same app that aren’t ordered.
+
+
+Reversing migrations¶
+Migrations can be reversed with migrate by passing the number of the previous migration. For example, to reverse migration books.0003:
+
+python manage.py migrate books 0002
+
+If you want to reverse all migrations applied for an app, use the name zero:
+
+Data Migrations - (wirting custom data migrations)
+Migrations that alter data are usually called “data migrations”; they’re best written as separate migrations, sitting alongside your schema migrations.
+
+
+we can squash migrations. after all instunce runing migrated to new one we can delet old migrations

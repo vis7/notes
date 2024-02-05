@@ -334,3 +334,40 @@ expr is evaluated and then assigned to the variable name. That value will also b
 >>> print(num:=15)
 15
 
+
+#########################
+for else - else will excecute only if whole for loop completed
+exception else - else will executed only if exception not occured
+
+#The try block does not raise any errors, so the else block is executed:
+
+try:
+  print("Hello")
+  raise Exception("something went wrong exception raised")
+except:
+  print("Something went wrong")
+else:
+  print("Nothing went wrong")
+finally:
+  print("print from finally block")
+ 
+print("program completed execution")
+
+###############
+
+for x in range(6):
+  if x == 3: break
+  print(x)
+else:
+  print("from else of for")
+
+#If the loop breaks, the else block is not executed.
+print("Finally finished!")
+
+#################
+
+JIT Compliler
+The JIT compiler helps improve the performance of Java programs by compiling bytecodes into native machine code at run time
+
+Cpython does not have JIT, Pypi, Jython, IornPython have, but they don't impliemnt all python subversions
+

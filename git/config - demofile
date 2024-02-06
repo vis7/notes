@@ -1,0 +1,10 @@
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa
+
+# Work GitHub
+Host github.com-vis7
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github-vis7.pub

@@ -1,4 +1,5 @@
 import threading
+import time
 
 # global variable
 x = 0
@@ -31,7 +32,11 @@ def main_task():
     # t2.join()
 
 if __name__ == '__main__':
+    start_time = time.perf_counter()
     for i in range(10):
         main_task()
         print(f"iteration {i}: x = {x}")
+    
+    time_taken = time.perf_counter() - start_time
+    print(time_taken)
 

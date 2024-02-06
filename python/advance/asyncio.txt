@@ -3,7 +3,7 @@ coroutine is a function that can suspend its execution before reaching return, a
 
 That is, time.sleep() can represent any time-consuming blocking function call, while asyncio.sleep() is used to stand in for a non-blocking call (but one that also takes some time to complete)
 
-async with and async for are also valid, and you’ll see them later on.
+'async with' and 'async for' are also valid, and you’ll see them later on.
 
 
 A function that you introduce with async def is a coroutine. It may use await, return, or yield, but all of these are optional. Declaring async def noop(): pass is valid:

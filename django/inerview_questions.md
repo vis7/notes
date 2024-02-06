@@ -38,6 +38,8 @@ how to use sql queries in django
 how can I use authentication in such a way that user can login from one device only
 types of authentication
 
+list vs tupple
+
 
 *) what is mixin ? when to use ? how it is diffrent from class ? (https://stackoverflow.com/questions/860245/mixin-vs-inheritance)
 -> Mixins are sometimes described as being "included" rather than "inherited". In short, the key difference from an inheritance is that mix-ins does NOT need to have a "is-a" relationship like in inheritance. From the implementation point of view, you can think it as an interface with implementations.

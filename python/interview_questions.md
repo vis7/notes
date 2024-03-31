@@ -1,3 +1,12 @@
+string, list, set, dict methods
+builtin python methods
+
+
+which oop is not supported by python (python oop)
+dictionary key must be hashble (int, str, tuple)
+
+
+
 # Practicals
 ```
 nums = [1, 9, 4, 12, 20, 2, 8, 21, 3] 

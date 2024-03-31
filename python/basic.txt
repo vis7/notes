@@ -1,0 +1,19 @@
+data types
+Text Type       :	str
+Numeric Types   :	int, float, complex
+Sequence Types  :	list, tuple, range
+Mapping Type    :	dict
+Set Types       :	set, frozenset
+Boolean Type    :	bool
+Binary Types    :	bytes, bytearray, memoryview
+None Type       :	NoneType
+
+
+tuple vs list
+The key difference between tuples and lists is that while tuples are immutable objects, lists are mutable. This means tuples cannot be changed while lists can be modified. Tuples are also more memory efficient than the lists. When it comes to time efficiency, tuples have a slight advantage over lists especially when we consider lookup value. If you have data that shouldn’t change, you should choose tuple data type over lists.
+
+
+Decorators
+allows you to modify or extend the behavior of functions or methods without changing their actual code. They are an excellent way to apply reusable functionality across multiple functions, such as timing, caching, logging, or authentication.
+https://www.programiz.com/python-programming/decorator
+

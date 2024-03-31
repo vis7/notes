@@ -32,6 +32,11 @@ middleware
 unit test
 
 
+# theoritical (for interview)
+- https://realpython.com/lego-model-view-controller-python/
+- https://realpython.com/solid-principles-python/
+
+
 - how to increase performace of application, how to make application scalable
 pre_fetch()
 

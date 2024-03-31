@@ -1,0 +1,46 @@
+# basic import 
+import pandas as pd
+import numpy as np
+
+# for reading csv file
+df = pd.read_csv("my_csvfile.csv")
+
+# for getting first five record
+df.head()
+
+# can access attribute of dataframe
+df.columns
+df.index
+df.<column_name>
+
+# for creating series you can pass list, tuple, numpy array or dicionary for creating series
+s = pd.Series(data)
+
+# boolean indexing
+s = pd.Series([1,2,3,4,5])
+s > 3 # will give series with True and False value
+
+# you can access values of series from True/False boolean indexing
+s[s > 3]
+
+# can access and change value of series
+
+
+
+# when doing series addtion only matching index value will be added and other values will become NaN
+
+
+# piviot table 
+
+# merge 
+
+# multiple index hierarchy
+
+mongodb
+node js 
+mean
+
+
+
+
+

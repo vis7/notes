@@ -1,0 +1,61 @@
+Notes memorize
+=>for unrar file
+unrar x -r /home/work/software/myfile.rar
+
+for Removing .deb Packages
+Remove a Debian package using the following command:
+=>sudo dpkg -r <packagename>
+
+If you want to remove the configuration files as well, use the following command:
+=>sudo dpkg -P <packagename>
+
+Apt can handle these too, and you won't need to remember the whole version number, just the actual name of the package.
+=>sudo apt remove <packagename>
+
+=> for running php project and program in ubutnu use xampp
+
+for vefifying checksum
+=> md5sum filename / sha256sum filename / sha1sum filename
+
+install and tutorial mysql
+https://www.mysqltutorial.org/python-mysql/
+
+start mysql
+=> sudo systemctl status mysql
+=> sudo mysql -u root -p
+
+
+removing package 
+
+
+You first check out for the name of the package you want to remove:
+
+dpkg --list
+
+Then remove the given package
+
+sudo apt-get remove package_name
+
+Purge any related code
+
+sudo apt-get purge package_name
+
+Then Autoremove
+
+sudo apt-get autoremove
+
+Finally, do a clean so you check everything is correctly removed
+
+sudo apt-get clean
+
+You would like to check at the packages list whether the one you wanted to remove is not listed anymore, but it is optional.
+
+Have a nice day,
+
+=> for installing package with pip you can use bellow command also
+python3 -m pip install package_name
+instead of bellow command if it did't work
+pip install package_name
+
+
+

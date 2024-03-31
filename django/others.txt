@@ -1,0 +1,35 @@
+create models from db
+# setup connection to mysqldb (https://www.digitalocean.com/community/tutorials/how-to-use-mysql-or-mariadb-with-your-django-application-on-ubuntu-14-04)
+install bellow 
+pip install django mysqlclient
+
+make changes in setting.py of your project
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'myproject',
+        'USER': 'myprojectuser',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+=> migrate changes
+cd ~/myproject
+python manage.py makemigrations
+python manage.py migrate
+
+=> create supersuer
+python manage.py createsuperuser
+
+=> now run server and goto 127.0.0.1:8000/admin
+
+# use existing mysqldb
+inspectdb works fine now. (Django 1.7.1) Simply running manage.py inspectdb will create classes for all tables in database and display on console.
+
+ $ python manage.py inspectdb
+
+Save this as a file by using standard Unix output redirection:
+
+ $ python manage.py inspectdb > models.py
+#######################################333

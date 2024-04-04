@@ -1,0 +1,50 @@
+# Object Oriented Programming
+special methods 
+__init__() - constructor
+__iter__() - make object iterable
+__next__() - next object of iterable
+__new__() - create new object also called instance creator or object creator
+    - It take Underlying class as first argument and returns a new object
+
+
+on object create __new__() and __init() method called
+
+__ is called "dunder"
+
+- Multiple constructor
+If multiple __init__ methods are written for the same class, then the latest one overwrites all the previous constructors and the reason for this can be that Python stores all the function names in a class as keys in a dictionary so when a new function is defined with the same name, the key remains the same but the value gets overridden by the new function body.
+
+It can be done in below ways
+1. Overloading constructors based on arguments.
+2. Calling methods from __init__.
+3. Using @classmethod decorator.
+
+ref - https://www.geeksforgeeks.org/creating-multiple-constructors-python-class/
+
+We can use __class__ attribute to know class of object
+
+calling super()
+super(Cube, self).what_am_i()
+
+# Multiple inheritance
+https://www.geeksforgeeks.org/multiple-inheritance-in-python/
+
+
+# Interface in python
+Python further deviates from other languages in one other aspect. It doesn’t require the class that’s implementing the interface to define all of the interface’s abstract methods.
+
+
+__method__ are called special methods
+
+
+Composition and inheritance (https://www.geeksforgeeks.org/inheritance-and-composition-in-python/)
+Interface - https://www.geeksforgeeks.org/python-interface-module/
+
+
+# Mixins
+We can create Mixins. It is designed to extend in to other classes rather than instantiating object from it. There is no specific syntax for it, but we add Mixin suffix at the end of class. 
+One crucial point to note is that the mixins must always go to the left of the 'base' class, i.e the main parent class should always be the right-most in the list of superclasses.
+(https://dev.to/bikramjeetsingh/write-composable-reusable-python-classes-using-mixins-6lj)
+
+
+

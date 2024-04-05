@@ -41,4 +41,7 @@ repr(obj) is defined by obj.__repr__() and should return a developer-friendly re
 str(obj) is defined by obj.__str__() and should return a user-friendly representation of obj. Data classes do not implement a .__str__() method, so Python will fall back to the .__repr__() method.
 
 
+special method .__post_init__() is for. It allows for special processing after the regular .__init__() method is called:
+
+Be aware though that if your data class contains mutable fields, those might still change. This is true for all nested data structures in Python (elements of tuple is list than that list is mutable)
 

@@ -371,3 +371,78 @@ The JIT compiler helps improve the performance of Java programs by compiling byt
 
 Cpython does not have JIT, Pypi, Jython, IornPython have, but they don't impliemnt all python subversions
 
+
+# need to do practice
+closure
+    - create multiple of 3, 5 closure
+    - Print Odd Numbers using Python Closure
+
+decorators
+lambda functions
+complex list comprehention
+
+
+# ?
+? nonlocal vs gloabal
+-> "nonlocal" means that a variable is "neither local or global", i.e, the variable is from an enclosing namespace (typically from an outer function of a nested function).
+
+An important difference between nonlocal and global is that a nonlocal variable must have been already bound in the enclosing namespace (otherwise an syntaxError will be raised) while a global declaration in a local scope does not require the variable is pre-bound (it will create a new binding in the global namespace if the variable is not pre-bound).
+
+
+We can override below built in methods in class defined by us in python, we overrided len() but also listed remaining methods
+
+class Order:
+    def __init__(self, cart, name):
+        self.cart = list(cart)
+        self.name = name
+
+    def __len__(self):
+        return len(self.cart)
+
+o = Order(['apple', 'banana', 'chery'], 'vishvajeet')
+print(o)
+print(len(o))
+
+
+To Overloading operator there are built in methods
+Airthmetic Operator
+__add__()
+__sub__()
+__mul__()
+__div__()
+__divmod__()
+__mod__() - Modulus of two number, remainder after devision. it. 10%3 = 1
+__pow__
+
+# methematical methods (built in)
+__abs__
+__len__()
+__str__()
+__repr__()
+__bool__()
+__abs__()
+__ceil__
+__floor__
+__floordiv__
+__sizeof__
+
+
+# bitwise operators
+__and__
+__eq__
+__ge__
+__gt__
+__le__
+__lshift__
+__lt__
+__ne__
+__or__
+__xor__
+
+above all methods have r methods ie. rand, rshift, rxor
+
+
+Example of overriding rmethod
+
+
+

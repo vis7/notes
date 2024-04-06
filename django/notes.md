@@ -109,3 +109,9 @@ MANIFEST_TYPES = (
     (LOCAL, 'Local'),
     (INTER_BRANCH, 'Inter Branch')
 )
+
+# Meta inner class in Django models:
+This is just a class container with some options (metadata) attached to the model. It defines such things as available permissions, associated database table name, whether the model is abstract or not, singular and plural versions of the name etc.
+https://docs.djangoproject.com/en/5.0/ref/models/options/
+
+

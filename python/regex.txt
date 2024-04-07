@@ -1,0 +1,14 @@
+remember meta character and special character table and go through 
+https://www.w3schools.com/python/python_regex.asp
+
+then practice and go through
+https://www.programiz.com/python-programming/regex
+
+# practicals
+- Do mobile number validation
+- Do email validation
+
+
+# regex syntax for ANDing multiple conditions
+^(?=.*one)(?=.*two)(?=.*three).*$
+https://stackoverflow.com/questions/3533408/regex-i-want-this-and-that-and-that-in-any-order

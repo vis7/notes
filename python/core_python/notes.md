@@ -445,4 +445,13 @@ above all methods have r methods ie. rand, rshift, rxor
 Example of overriding rmethod
 
 
+# decorator
+=> pre requisite for decorators
+we can define function inside function and call it
+we can pass function as argument in function
+function can return another function as return value
+
+ A Python decorator is a function that takes in a function and returns it by adding some functionality.
+
+ Basically, a decorator takes in a function, adds some functionality and returns it.
 

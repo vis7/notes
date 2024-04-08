@@ -44,3 +44,13 @@ views
 + https://books.agiliq.com/en/latest/README.html
 + https://github.com/shahraizali/awesome-django
 
+# ChatGPT Questions
+what is custom manager in django
+
+# Practical Task to revises DRF
+
+# Practical Task to revise Django
+
+
+# topics need to cover
+pytest

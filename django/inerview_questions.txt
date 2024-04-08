@@ -83,4 +83,10 @@ django 4.1 updates
 - calm, confidence, decipline, honest, positive attitude
 
 
-
+# some other questions
+postgresql features exta not available in other database
+cacheing in django
+github actions - demo
+row sql 
+how you will impliment security in web application. (django features, what you need to do)
+row query vs orm speed, pros and cons

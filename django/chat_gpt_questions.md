@@ -1,1 +1,0 @@
-what is custom manager in django

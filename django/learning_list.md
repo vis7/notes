@@ -1,7 +1,7 @@
 # Basic
-Django - https://github.com/codingforentrepreneurs/Try-Django
-Django doc tutorial - https://docs.djangoproject.com/en/4.1/intro/tutorial01/ 
-Django ORM - 
+- Django - https://github.com/codingforentrepreneurs/Try-Django
+- Django doc tutorial - https://docs.djangoproject.com/en/4.1/intro/tutorial01/ 
+- Django ORM - 
 
 # DRF
 - https://www.django-rest-framework.org/tutorial/1-serialization/ (whole tutorial)
@@ -13,23 +13,21 @@ Django ORM -
 nested serializer
 
 # practice / revise
-https://github.com/vis7/django_todo_app
-https://github.com/vis7/drf_authentication_demo
-
-
-oauth
-send msgs
-drf revision
-django and DRF Testing
+- https://github.com/vis7/django_todo_app
+- https://github.com/vis7/drf_authentication_demo
+- oauth
+- send msgs
+- drf revision
+- django and DRF Testing
 
 
 # advance django topics
-cache 
-authentication
-signals
-pagination
-middleware
-unit test
+- cache 
+- authentication
+- signals
+- pagination
+- middleware
+- unit test
 
 
 # theoritical (for interview)
@@ -38,50 +36,44 @@ unit test
 
 
 - how to increase performace of application, how to make application scalable
-pre_fetch()
+- pre_fetch()
 
 
 # performance
-https://www.netguru.com/blog/django-performance-optimization (sort)
-https://www.esparkinfo.com/blog/django-performance-tips.html (in details - get overview and do practicals)
-https://docs.djangoproject.com/en/4.1/topics/performance/
-
-https://realpython.com/caching-in-django-with-redis/
-https://docs.djangoproject.com/en/4.1/topics/cache/
-
-
-https://github.com/jazzband/django-silk
-
-
-
-
+- https://www.netguru.com/blog/django-performance-optimization (sort)
+- https://www.esparkinfo.com/blog/django-performance-tips.html (in details - get overview and do practicals)
+- https://docs.djangoproject.com/en/4.1/topics/performance/
+- https://realpython.com/caching-in-django-with-redis/
+- https://docs.djangoproject.com/en/4.1/topics/cache/
+- https://github.com/jazzband/django-silk
 
 Use performance booster to to handle big number of requests
 
 # Questions
 - RequestFactory vs Client for testing (DRF - APIRequestFactory and RequestFactory)
+
 https://stackoverflow.com/questions/30992377/django-test-requestfactory-vs-client
 
 
 
 # add ons
-linter
-auto pep8 code corrections
+- linter
+- auto pep8 code corrections
 
 # rabbitmq 
-https://www.rabbitmq.com/tutorials/tutorial-one-python.html (series of 7 tutorials)
+- https://www.rabbitmq.com/tutorials/tutorial-one-python.html (series of 7 tutorials)
 
 # Celery (to learn)
-https://realpython.com/asynchronous-tasks-with-django-and-celery/
-https://docs.celeryq.dev/en/stable/userguide/periodic-tasks.html
-https://dev.to/_nancychauhan/introduction-to-message-queue-build-a-newsletter-app-using-django-celery-and-rabbitmq-in-30-min-60p
-https://www.section.io/engineering-education/django-celery-tasks/
+- https://realpython.com/asynchronous-tasks-with-django-and-celery/
+- https://docs.celeryq.dev/en/stable/userguide/periodic-tasks.html
+- https://dev.to/_nancychauhan/introduction-to-message-queue-build-a-newsletter-app-using-django-celery-and-rabbitmq-in-30-min-60p
+- https://www.section.io/engineering-education/django-celery-tasks/
 
 # profiling
-https://medium.com/kami-people/profiling-in-django-9f4d403a394f
+- https://medium.com/kami-people/profiling-in-django-9f4d403a394f
 
 # pytest - (unittesting) - django and drf
-`
+
 
 # django learning (topics from django)
 https://docs.djangoproject.com/en/4.1/topics/migrations/

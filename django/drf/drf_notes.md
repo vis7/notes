@@ -1,66 +1,71 @@
-1. Serializer
-
+# 1. Serializer
+```
 from rest_framework import serializers
-- other important serializer class
-HyperlinkedModelSerializer
+```
+- other important serializer class ```HyperlinkedModelSerializer```
 
-serializers.Serializer() # normal serializer
-It impliment create(), update() internally
+```serializers.Serializer() # normal serializer```
+- It impliment create(), update() internally
 
 serializers.ModelSerializer
 
 serializers.<Model>Field() # same fields as with django.models eg. CharField, IntegerField etc.
 - other important fileds
+```
 PrimaryKeyRelatedField, HyperlinkedRelatedField
+```
 
-
-
+```
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 
-- print representation of model
+# print representation of model
 serializer = SnippetSerializer()
 print(repr(serializer))
+```
 
 
-
-2. 
+# 2. 
 
 request.data | request.POST
-def snippet_list(request, format=None): # at the end .json, .api or Accept:application/json, Accept:text/html in request header
+`def snippet_list(request, format=None):` # at the end .json, .api or `Accept:application/json`, `Accept:text/html` in request header
 
+```
 from rest_framework.urlpatterns import format_suffix_patterns
 urlpatterns = format_suffix_patterns(urlpatterns)
 
 from rest_framework import status
+```
 
 - Wrapping API views
-REST framework provides two wrappers you can use to write API views.
 
-The @api_view decorator for working with function based views.
-The APIView class for working with class-based views.
+REST framework provides two wrappers you can use to write API views. The @api_view decorator for working with function based views. The APIView class for working with class-based views.
 
-- These wrappers provide a few bits of functionality such as making sure you receive Request instances in your view, and adding context to Response objects so that content negotiation can be performed.
+These wrappers provide a few bits of functionality such as making sure you receive Request instances in your view, and adding context to Response objects so that content negotiation can be performed.
 
 The wrappers also provide behaviour such as returning 405 Method Not Allowed responses when appropriate, and handling any ParseError exceptions that occur when accessing request.data with malformed input.
 
+```
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+```
 
 
-
-3. class based view
-
+# 3. class based view
+```
 from rest_framework.views import APIView
+```
+You can impliment get, post, patch, delete method in APIView class
 
-you can impliment get, post, patch, delete method in APIView class
-
+```
 from rest_framework.mixins import ListModelMixin, CreateModelMixin, RetriveModelMixin, UpdateModelMixin, DestroyModelMixin
 from rest_framework.generics import GenericAPIView, ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView, RetrieveAPIView
+```
 
-4. Authentication and Permissions
+# 4. Authentication and Permissions
 
 to overriding existing save()
+```
 def save(self, *args, **kwargs):
     """
     Use the 'pygments' library to create a highlighted HTML
@@ -73,40 +78,46 @@ def save(self, *args, **kwargs):
                               full=True, **options)
     self.highlighted = highlight(self.code, lexer, formatter)
     super(Snippet, self).save(*args, **kwargs)
+```
 
 The way we deal with that is by overriding a .perform_create() method on our snippet views, that allows us to modify how the instance save is managed, and handle any information that is implicit in the incoming request or requested URL.
 
 On the SnippetList view class, add the following method:
-
+```
 def perform_create(self, serializer):
     serializer.save(owner=self.request.user)
+```
 The create() method of our serializer will now be passed an additional 'owner' field, along with the validated data from the request.
 
 
-IsAuthenticatedOrReadOnly, which will ensure that authenticated requests get read-write access, and unauthenticated requests get read-only access.
+`IsAuthenticatedOrReadOnly`, which will ensure that authenticated requests get read-write access, and unauthenticated requests get read-only access.
 
 First add the following import in the views module
-
+```
 from rest_framework import permissions
+```
 Then, add the following property to both the SnippetList and SnippetDetail view classes.
-
+```
 permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-
+```
 below will provide login/logout url
+```
 urlpatterns += [
     path('api-auth/', include('rest_framework.urls')),
 ]
+```
 
-5. Relationships & HyperlinkedAPIs
+# 5. Relationships & HyperlinkedAPIs
 
 from rest_framework.reverse import reverse
 
-6. Viewsets and routers
-
+# 6. Viewsets and routers
+```
 from rest_framework import viewsets
-- important viewsets
-ReadOnlyModelViewSet
+```
+- important viewsets `ReadOnlyModelViewSet`
 
+```
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import permissions
@@ -130,15 +141,15 @@ class SnippetViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+```
+Notice that we've also used the `@action` decorator to create a custom action, named highlight. This decorator can be used to add any custom endpoints that don't fit into the standard create/update/delete style.
 
-Notice that we've also used the @action decorator to create a custom action, named highlight. This decorator can be used to add any custom endpoints that don't fit into the standard create/update/delete style.
-
-Custom actions which use the @action decorator will respond to GET requests by default. We can use the methods argument if we wanted an action that responded to POST requests.
+Custom actions which use the `@action` decorator will respond to GET requests by default. We can use the methods argument if we wanted an action that responded to POST requests.
 
 The URLs for custom actions by default depend on the method name itself. If you want to change the way url should be constructed, you can include url_path as a decorator keyword argument.
 
-
-- using routers
+```
+# using routers
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
@@ -153,7 +164,7 @@ router.register(r'users', views.UserViewSet)
 urlpatterns = [
     path('', include(router.urls)),
 ]
-
+```
 
 # read below for more advance learning
 - serializer and viewset api guide
@@ -176,6 +187,7 @@ https://www.cdrf.co/
 required - Defaults to True. If you're using Model Serializer default value will be False if you have specified blank=True or default or null=True at your field in your Model.
 
 # paginate request data
+```
 def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         page = self.paginate_queryset(queryset)
@@ -185,7 +197,7 @@ def list(self, request, *args, **kwargs):
 
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
-
+```
 
 # General
 - write_only, read_only field - incorrect one make error which is deficult to track and debug. so just try changing key. (Caution)
@@ -196,7 +208,7 @@ def list(self, request, *args, **kwargs):
 # DRF Fields
 source - Defaults to the name of the field.
 
-
+```
 from rest_framework import serializers
 
 class MySerializer(serializers.Serializer):
@@ -210,9 +222,9 @@ class MySerializer(serializers.Serializer):
         # ...
 
         return representation
-    
+```   
 
-Remember that the to_representation method is called when converting the serializer data to a representation that can be rendered, such as when serializing data for a response. If you need to access the initial value during the validation or deserialization process, you might use to_internal_value instead.
+Remember that the `to_representation` method is called when converting the serializer data to a representation that can be rendered, such as when serializing data for a response. If you need to access the initial value during the validation or deserialization process, you might use to_internal_value instead.
 
 
 
@@ -220,7 +232,7 @@ style
 A dictionary of key-value pairs that can be used to control how renderers should render the field.
 
 Two examples here are 'input_type' and 'base_template':
-
+```
 # Use <input type="password"> for the input.
 password = serializers.CharField(
     style={'input_type': 'password'}
@@ -231,7 +243,7 @@ color_channel = serializers.ChoiceField(
     choices=['red', 'green', 'blue'],
     style={'base_template': 'radio.html'}
 )
-
+```
 
 Boolean field - blank kwarg removed, default required=True
 

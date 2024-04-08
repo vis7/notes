@@ -51,7 +51,7 @@ Further filtering or ordering of a sliced queryset is prohibited due to the ambi
 
 
 
-## get
+## Relational Lookup
 accecssing attirbute form object using obj.<Model>_set
 accecssing attribute in filter <foreign_key_field_name>__<attribute of that field>
 
@@ -133,14 +133,12 @@ For example, to find a list of all blog entries that have had more comments than
 ```
 >>> from django.db.models import F
 >>> Entry.objects.filter(number_of_comments__gt=F('number_of_pingbacks'))
-```
+
 
 # Get blogs entries with id 1, 4 and 7
-```
->>> Blog.objects.filter(pk__in=[1,4,7])
-```
 
-```
+>>> Blog.objects.filter(pk__in=[1,4,7])
+
 Poll.objects.get(
     Q(question__startswith='Who'),
     Q(pub_date=date(2005, 5, 2)) | Q(pub_date=date(2005, 5, 6))

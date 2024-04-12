@@ -90,3 +90,9 @@ github actions - demo
 row sql 
 how you will impliment security in web application. (django features, what you need to do)
 row query vs orm speed, pros and cons
+refresh token (how to get, when expire)
+jwt authentication
+internationalization
+
+django celery beat practical (schedule task)
+async practical

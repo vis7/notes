@@ -1,1 +1,7 @@
+# monolithic vs microservices (Limitationn of Django as monolithic Architecture)
 https://www.geeksforgeeks.org/monolithic-vs-microservices-architecture/
+
+Django Features
+https://pythongeeks.org/features-of-python-django-framework/
+
+

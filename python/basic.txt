@@ -53,3 +53,6 @@ Be aware though that if your data class contains mutable fields, those might sti
 - create non parameter decorator
 - create parameterised decorator 
 
+# generator
+- find sum of square of first 10 fibonaci sequence using generator
+

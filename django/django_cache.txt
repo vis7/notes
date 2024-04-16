@@ -1,0 +1,28 @@
+cacheing algorithm
+given a URL, try finding that page in the cache
+if the page is in the cache:
+    return the cached page
+else:
+    generate the page
+    save the generated page in the cache (for next time)
+    return the generated page
+
+
+# setting up caching with redis
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": "redis://username:password@127.0.0.1:6379",
+    }
+}
+
+# Per View Cache
+from django.views.decorators.cache import cache_page
+
+
+@cache_page(60 * 15)
+def my_view(request): ...
+
+
+
+

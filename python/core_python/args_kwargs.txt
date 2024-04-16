@@ -1,0 +1,81 @@
+* is also called unpacking operator in python, here are some of the use cases
+
+* args - it allows you to pass a varying number of positional arguments. Take the following example
+def my_sum(*args):
+    result = 0
+    # Iterating over the Python args tuple
+    for x in args:
+        result += x
+    return result
+
+print(my_sum(1, 2, 3))
+
+
+Bear in mind that the iterable object you’ll get using the unpacking operator * is not a list but a tuple
+
+
+# example - 2
+def my_sum(*args):
+    result = 0
+    for x in args:
+        result += x
+    return result
+
+list1 = [1, 2, 3]
+list2 = [4, 5]
+list3 = [6, 7, 8, 9]
+
+print(my_sum(*list1, *list2, *list3))
+
+# example - 3
+my_list = [1, 2, 3, 4, 5, 6]
+
+a, *b, c = my_list
+
+print(a)
+print(b)
+print(c)
+
+
+# Example 4
+my_first_list = [1, 2, 3]
+my_second_list = [4, 5, 6]
+my_merged_list = [*my_first_list, *my_second_list]
+
+print(my_merged_list)
+
+# example 5 (string)
+a = [*"RealPython"]
+print(a)
+
+# example 6
+*a, = "RealPython"
+print(a)
+
+Python requires that your resulting variable is either a list or a tuple. With the trailing comma, you have defined a tuple with only one named variable, a, which is the list ['R', 'e', 'a', 'l', 'P', 'y', 't', 'h', 'o', 'n']
+
+
+# kwargs Example
+def concatenate(**kwargs):
+    result = ""
+    # Iterating over the keys of the Python kwargs dictionary
+    for arg in kwargs.values():
+        result += arg
+    return result
+
+print(concatenate(a="Real", b="Python", c="Is", d="Great", e="!"))
+
+
+# Example 2
+my_first_dict = {"A": 1, "B": 2}
+my_second_dict = {"C": 3, "D": 4}
+my_merged_dict = {**my_first_dict, **my_second_dict}
+
+print(my_merged_dict)
+
+
+
+
+
+
+

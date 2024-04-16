@@ -1,0 +1,42 @@
+# Django admin help commands
+vis@vis-ROG-Strix-G531GD-G531GD:~/vis/projects$ django-admin help
+
+Type 'django-admin help <subcommand>' for help on a specific subcommand.
+
+Available subcommands:
+
+[django]
+    check
+    compilemessages
+    createcachetable
+    dbshell
+    diffsettings
+    dumpdata
+    flush
+    inspectdb
+    loaddata
+    makemessages
+    makemigrations
+    migrate
+    optimizemigration
+    runserver
+    sendtestemail
+    shell
+    showmigrations
+    sqlflush
+    sqlmigrate
+    sqlsequencereset
+    squashmigrations
+    startapp
+    startproject
+    test
+    testserver
+
++ diffrent project structures of django, which to use why (eg. all apps inside apps folder, default django project structure)
+
+# Authentication
+1. extending AbstractUser, and replace AUTH_MODEL (most recommended)
+
+2. Creating one to one mapping with Default user class
+
+

@@ -136,3 +136,12 @@ find . -path "*/migrations/*.pyc"  -delete
 - User is able to login only if it is active
 - form_valid method is overridden in view rather then form
 
+
+
++ when we have  many to many field using through table, when we do entry in in model using add() or remove(), its respective effect on through table will also be done by django.
+
+order_ids = request.data.get("orders", [])
+orders = Order.objects.filter(id__in=order_ids)
+order_list = [order for order in orders]
+
+bag.orders.add(*order_list)

@@ -1,0 +1,58 @@
+# custom authentication in django
+https://docs.djangoproject.com/en/5.0/topics/auth/customizing/ 
+https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html
+
+
+Authentication backends provide an extensible system for when a username and password stored with the user model need to be authenticated against a different service than Django’s default.
+
+You can give your models custom permissions that can be checked through Django’s authorization system.
+
+You can extend the default User model, or substitute a completely customized model.
+
+default authentication backend is below, we can write our own custom authentication backend and override it in settings.py file
+AUTHENTICATION_BACKENDS = ["django.contrib.auth.backends.ModelBackend"]
+
+
+
+
+from django.contrib.auth.models import User
+user = User.objects.create_user("john", "lennon@thebeatles.com", "johnpassword")
+
+python manage.py createsuperuser --username=joe --email=joe@example.com
+
+
+>>> from django.contrib.auth.models import User
+>>> u = User.objects.get(username="john")
+>>> u.set_password("new password")
+>>> u.save()
+
+
+
+from django.contrib.auth import authenticate
+
+user = authenticate(username="john", password="secret") # it will return user
+if user is not None:
+    # A backend authenticated the credentials
+    ...
+else:
+    # No backend authenticated the credentials
+
+
+User objects have two many-to-many fields: groups and user_permissions. User objects can access their related objects in the same way as any other Django model:
+
+myuser.groups.set([group_list])
+myuser.groups.add(group, group, ...)
+myuser.groups.remove(group, group, ...)
+myuser.groups.clear()
+myuser.user_permissions.set([permission_list])
+myuser.user_permissions.add(permission, permission, ...)
+myuser.user_permissions.remove(permission, permission, ...)
+myuser.user_permissions.clear()
+
+Assuming you have an application with an app_label foo and a model named Bar, to test for basic permissions you should use:
+
+add: user.has_perm('foo.add_bar')
+change: user.has_perm('foo.change_bar')
+delete: user.has_perm('foo.delete_bar')
+view: user.has_perm('foo.view_bar')
+The Permission model is rarely accessed directly.

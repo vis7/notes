@@ -56,3 +56,13 @@ change: user.has_perm('foo.change_bar')
 delete: user.has_perm('foo.delete_bar')
 view: user.has_perm('foo.view_bar')
 The Permission model is rarely accessed directly.
+
+
+
+If you reference User directly (for example, by referring to it in a foreign key), your code will not work in projects where the AUTH_USER_MODEL setting has been changed to a different user model.
+
+
+using=self._db: The using parameter allows you to specify the database connection to use when saving the object. If your project uses multiple databases and you want to save the object to a specific database, you can pass the alias of that database to the using parameter. In this case, self._db typically refers to the default database connection defined in your settings file.
+
+Use authenticate() to verify a set of credentials. It takes credentials as keyword arguments, username and password for the default case, checks them against each authentication backend, and returns a User object if the credentials are valid for a backend. If the credentials aren’t valid for any backend or if a backend raises PermissionDenied, it returns None. For example:
+

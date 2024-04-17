@@ -145,3 +145,12 @@ orders = Order.objects.filter(id__in=order_ids)
 order_list = [order for order in orders]
 
 bag.orders.add(*order_list)
+
+
+- reverse vs reverse_lazy
+In summary, use reverse for generating URLs in views when the URL is needed immediately and reverse_lazy for generating URLs in situations where accessing the URL immediately may cause issues or where lazy evaluation is preferred.
+eg. 
+
+class MyRedirectView(RedirectView):
+    url = reverse_lazy('some_url_name') # evaluated immediately so used reverse_lazy
+

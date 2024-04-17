@@ -45,6 +45,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group
 from django import forms
 from django.db import transaction
+
 class UserSignUpForm(UserCreationForm):
     name = forms.CharField(max_length=32)
 

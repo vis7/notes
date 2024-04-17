@@ -1,3 +1,7 @@
+# Policy
+Be calm and confident, jetlu khabar 6 etlu boli j devanu,
+
+
 brief introduction about yourself and the projects you have worked on
 
 # django
@@ -96,3 +100,28 @@ internationalization
 
 django celery beat practical (schedule task)
 async practical
+
+
+
+
+django context processor
+wsgi ?
+request response cycle in django
+signals in django
+middleware
+sesssion in django
+what is serializer ?
+
+python memory management
+multiprocess vs multi threading 
+
+index, trigger in database
+
+
+what is micro services ?
+usecase of micro services
+
+
+# docker
+image
+volume

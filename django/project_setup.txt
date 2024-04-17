@@ -1,0 +1,7 @@
+# install
+
+# for interactive shell_plus
+django-extentions
+ipython
+
+# for sorting imports and reformat code before commit according to PEP8

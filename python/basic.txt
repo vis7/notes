@@ -56,3 +56,10 @@ Be aware though that if your data class contains mutable fields, those might sti
 # generator
 - find sum of square of first 10 fibonaci sequence using generator
 
+
+# asked frequently / also asked
+user verification using mobile number
+
+chat application
+mongodb with django 
+

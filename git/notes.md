@@ -8,6 +8,9 @@ git init
 git remote add origin <your repo url>
 git pull origin main
 
+# current branch is master if you want to change it to main
+git branch -m master main
+
 # than it is ready to commit
 git add .
 git commit -m "your message"

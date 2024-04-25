@@ -33,3 +33,24 @@ for x in range(50):
 print(squares[25]()) 
 print(squares[5]())
 ```
+
+
+# reverse string without using built in function or slicing
+mystr = "parshv"
+new_string = ""
+for i in range(len(mystr)-1, -1, -1):
+    new_string += mystr[i]
+
+# produce below output from input using list comprehention
+input = ["a1", "b2b", "cc3c", 4, 5, 6.5, "7.5"]
+output = ["a1 String", "b2b String", "cc3c String", "4 Digit", "5 Digit", "6.5 Digit", "7.5 Digit"]
+
+
+[f"{i} Stirng" if type(i).__name__ == 'str' else f"{i} Digit" for i in input]
+
+
+
+find missing element in inputs = [4, 2, 3, 6]
+
+
+minion game

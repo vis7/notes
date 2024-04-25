@@ -40,3 +40,6 @@ docker tag 12db06a17aa4 vishvajeetramanuj95/tensorflow-serving-docker:latest
 docker push vishvajeetramanuj95/tensorflow-serving-docker:latest
 
 
+# to run using docker compose
+docker compose up --build # --build need to be add for running first time only
+

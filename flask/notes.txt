@@ -1,0 +1,48 @@
+if we have trailing / at the end while defining url, then while in browser if we not specify it, it will still redirect to correct endpoint, but if we defined endpoint without "/" and we type "/" at the end than it will not get result but will give 404
+
+
+If GET is present, Flask automatically adds support for the HEAD method and handles HEAD requests according to the HTTP RFC. Likewise, OPTIONS is automatically implemented for you.
+
+
+Converter types:
+
+string - (default) accepts any text without a slash
+int - accepts positive integers
+float - accepts positive floating point values
+path - like string but also accepts slashes
+uuid - accepts UUID strings
+
+
+# import things to remember
+from flask import Flask, url_for, request, make_response, abort, redirect, render_template, session
+from markupsafe import escape
+
+
+from markupsafe import Markup
+
+Markup("html").striptags()
+
+
+from werkzeug.utils import secure_filename
+
+
+with app.test_request_context():
+    pass
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('page_not_found.html'), 404
+
+
+get cookie
+request.cookies.get('username')
+
+set cookie 
+    resp = make_response(render_template(...))
+    resp.set_cookie('username', 'the username')
+    return resp
+
+
+request.form['username']
+searchword = request.args.get('key', '')

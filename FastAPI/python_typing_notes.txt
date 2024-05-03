@@ -1,0 +1,68 @@
+Python has support for optional "type hints" (also called "type annotations"). These "type hints" or annotations are a special syntax that allow declaring the type of a variable.
+
+# advantages 
++ get auto completion in editors
++ get compilation error when your doing something wrong (eg. concate str and int)
++ It will provide documentation in fastapi (swager and redoc)
+
+
+Declaring generic types with type parameter (eg. list, tuple, dict, set)
+We have used for python 3.9+, for lower version we need to import these data types from typing. eg. from typing import Tuple, List, Dict, Set
+
+
+
+# list of string 
+items: list[str] 
+
+# tuple of two int and string
+items_t: tuple[int, int, str]
+
+# define dict
+prices: dict[str, float]  # first parameter is for keys and second one for values
+
+# You can declare that a variable can be any of several types, for example, an int or a str
+item: int | str  
+item: any_data_type | None
+
+# for older than python 3.10 item
+from typing import Union, Optional
+item: Union[int, str]
+item: Union[any_data_type, None]
+
+
+# tip
+🚨 Avoid using Optional[SomeType]
+Instead ✨ use Union[SomeType, None] ✨.
+
+
+We can also declare class as veriable type
+
+# define type with Pydentic
+from datetime import datetime
+
+from pydantic import BaseModel
+
+
+class User(BaseModel):
+    id: int
+    name: str = "John Doe"
+    signup_ts: datetime | None = None
+    friends: list[int] = []
+
+
+external_data = {
+    "id": "123",
+    "signup_ts": "2017-06-01 12:22",
+    "friends": [1, "2", b"3"],
+}
+user = User(**external_data)
+print(user)
+
+# Type Hints with Metadata Annotations
+name: Annotated[str, "this is just metadata"]
+
+
+# reference
++ https://fastapi.tiangolo.com/python-types/
++ https://mypy.readthedocs.io/en/latest/cheat_sheet_py3.html
+

@@ -125,3 +125,10 @@ usecase of micro services
 # docker
 image
 volume
+
+
+
+what is solid principles ?
+sql vs nosql databse
+    - https://www.geeksforgeeks.org/difference-between-sql-and-nosql/
+    - https://www.mongodb.com/nosql-explained/nosql-vs-sql

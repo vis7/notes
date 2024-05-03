@@ -1,0 +1,8 @@
+@app.post()
+@app.put()
+@app.delete()
+
+@app.options()
+@app.head()
+@app.patch()
+@app.trace()

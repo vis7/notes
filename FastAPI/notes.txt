@@ -6,3 +6,52 @@
 @app.head()
 @app.patch()
 @app.trace()
+
+
+fast api function return - You can return a dict, list, singular values as str, int, etc. You can also return Pydantic models (you'll see more about that later).
+
+order of path() matters, declair plain one first and then declare path with parameters
+redefine path will always use first match
+
+# declaring path as parameter
+@app.get("/files/{file_path:path}")
+async def read_file(file_path: str):
+    return {"file_path": file_path}
+
+# diffrece between queyr parameters, path parameter
+You can declare multiple path parameters and query parameters at the same time, FastAPI knows which is which. query parameter are optional so we need to provide default values for them, but we can make them required by not providing values for it.
+
+@app.get("/users/{user_id}/items/{item_id}")
+async def read_user_item(
+    user_id: int, item_id: str, q: str | None = None, short: bool = False
+):
+    pass
+
+
+The function parameters will be recognized as follows:
+
+If the parameter is also declared in the path, it will be used as a path parameter.
+If the parameter is of a singular type (like int, float, str, bool, etc) it will be interpreted as a query parameter.
+If the parameter is declared to be of the type of a Pydantic model, it will be interpreted as a request body.
+
+
+If you want single body parameter, you can declare it inside function signature along with other parameter like below
+    importance: Annotated[int, Body(gt=0)],
+
+
+if you want it to expect a JSON with a key item and inside of it the model contents, as it does when you declare extra body parameters, you can use the special Body parameter embed
+
+@app.put("/items/{item_id}")
+async def update_item(item_id: int, item: Annotated[Item, Body(embed=True)]):
+    results = {"item_id": item_id, "item": item}
+    return results
+
+than body will be
+{
+    "item": {
+        "name": "Foo",
+        "description": "The pretender",
+        "price": 42.0,
+        "tax": 3.2
+    }
+}

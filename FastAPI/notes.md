@@ -861,3 +861,8 @@ Bigger Applications - Multiple Files
 # remained
 dependency
 security
+
+
+# next
+- https://alembic.sqlalchemy.org/en/latest/tutorial.html - migration
+- https://www.sqlalchemy.org/

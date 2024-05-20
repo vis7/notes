@@ -34,7 +34,7 @@ annotations and aggregations
 what is middleware ? how to write your own ?
 django MVT architecture explain, viewset and routher
 classbased views vs functionbased view and when to use which
-inheritance in djanog (model inheritance, proxy inheritance) (https://buildatscale.tech/model-inheritance-in-django/)
+inheritance in djanog (multi-table inheritance, abstract inheritance and proxy inheritance) (https://buildatscale.tech/model-inheritance-in-django/)
 authentication vs authorization 
 serializers type in drf
 apiview vs viewset diffrence
@@ -121,6 +121,7 @@ index, trigger in database
 what is micro services ?
 usecase of micro services
 
+jwt token, explain, how to use with django ?
 
 # docker
 image
@@ -132,3 +133,18 @@ what is solid principles ?
 sql vs nosql databse
     - https://www.geeksforgeeks.org/difference-between-sql-and-nosql/
     - https://www.mongodb.com/nosql-explained/nosql-vs-sql
+
+
+##################
+djnogo ?
+dateutil  - https://dateutil.readthedocs.io/en/stable/
+date sort using lambda function 
+
+how can i sort list of dates using lambda function in python
+
+need to learn scraing using beautifusoup and selenium
+
+how you solve CORS error in django
+
+
+

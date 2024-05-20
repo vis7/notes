@@ -4,3 +4,14 @@ Djongo is the only connector that lets you use Django with MongoDB without chang
 MongoEngine is a Python Object-Document Mapper for working with MongoDB. It’s very similar to Django’s ORM (in fact, even its API has a lot of resemblances) but for a document-oriented database (hence the name ODM)
 
 
+# commandline interaction with mongodb
+mongosh
+
+# show all dbs
+show dbs
+
+# delete dbs
+use <database_name>; # from the list above
+db.dropDatabase();
+
+

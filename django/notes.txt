@@ -154,3 +154,13 @@ eg.
 class MyRedirectView(RedirectView):
     url = reverse_lazy('some_url_name') # evaluated immediately so used reverse_lazy
 
+
+
+# Django
+Djongo is a unified approach to database interfacing. It is an extension to the
+Django ORM framework but maps python objects to MongoDB documents.
+
+Constructing queries using Djongo is much easier compared to writing lengthy Pymongo query documents. Storing raw JSON emitted by the frontend directly into the database is scary. Djongo ensures that only clean data gets through.
+
+You no longer need to use the shell to inspect your data. By using the Admin package, you can access and modify data directly from the browser. Djongo includes handy UI elements that help represent MongoDB documents on the browser.
+

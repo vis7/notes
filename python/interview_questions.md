@@ -54,3 +54,18 @@ find missing element in inputs = [4, 2, 3, 6]
 
 
 minion game
+
+
+# Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
+inputs = [4, 2, 3, 6]
+
+
+def find_missing_number(inputs):
+    sorted_inputs = sorted(inputs)
+    for i in range(len(sorted_inputs) -1):
+        if sorted_inputs[i+1] - sorted_inputs[i] != 1:
+            return sorted_inputs[i] + 1
+
+
+print(find_missing_number(inputs))

@@ -1,0 +1,106 @@
+li id="product-list-item"
+    a class=tw-hqslau tw-xbcb1y
+        div class=w-full flex flex-col gap-2
+            div class="relative w-full flex flex-col gap-2"
+                div class="relative flex mobile:flex-col w-full items-start"
+                    h3 class="w-full mobile:text-sm mobile:pr-0 font-bold text-base pr-5 line-clamp-2"
+                        content
+
+
+# title
+response.css(".line-clamp-2::text").extract() 
+
+# price
+response.css("#product-list-sort-select , .font-bold.override\:opacity-100::text").extract()
+response.css("#product-list-sort-select , .font-bold.override\:opacity-100 , .text-puma-red::text").extract()
+
+
+# titile with price
+#product-list-items .text-base.font-bold
+
+# final (which is yielding name and price)
+response.css("#product-list-items .text-base.font-bold::text").extract()
+
+
+
+https://in.puma.com/in/en/mens/mens-shoes/mens-shoes-sneakers?offset=648
+
+
+
+link to products
+
+
+fetch info from page
+#pdp-product-title - title
+.override\:md\:text-2xl - price
+
+
+.tw-6nh9ql
+.tw-6nh9ql
+
+
+
+
+
+
+git status
+
+
+
+
+h3 class="w-full mobile:text-sm mobile:pr-0 font-bold text-base pr-5 line-clamp-2" - Title
+span class="whitespace-nowrap text-base text-puma-red font-bold" - price
+
+
+
+
+        h3_tags = response.css('h3.w-full.mobile\\:text-sm.mobile\\:pr-0.font-bold.text-base.pr-5.line-clamp-2')
+
+# css selector
+response.css("title") # tag inside HTML
+response.css("title").extract() # 
+response.css("title::text").extract()
+response.css("title::text")[0].extract()
+response.css("title::text").extract_first()
+response.css("span.text::text") # extract span element with class="text" using .
+response.css("span#text::text") # extract span element with id="text" using #
+
+Selector Gadget - chrome extension
+    - select element you want to select, click other to deselect elements
+
+response.css(".author::text").extract()
+
+# run spider
+scrapy crawl <spider_name>
+
+# run spider and store data as json
+scrapy crawl puma -O puma.json
+
+# store data as csv (final output)
+scrapy crawl puma -O puma.csv
+
+
+
+192
+216
+240
+264
+
+
+654
+
+https://in.puma.com/in/en/mens/mens-shoes/mens-shoes-sneakers?offset=648
+
+
+# notes
+https://testsigma.com/blog/xpath-vs-css-selector/
+
+
+
+
+
+
+
+
+# learn xpath, css syntax for scraping
+

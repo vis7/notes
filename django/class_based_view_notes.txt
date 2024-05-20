@@ -13,7 +13,7 @@ form_class
 -> method
 form_valid() (optional if we want to do extra validation on form submit)
 
-# UpdateView and DeleteView
+# UpdateView
 -> attribute
 form_class
 model or get_object()

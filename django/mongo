@@ -15,3 +15,12 @@ use <database_name>; # from the list above
 db.dropDatabase();
 
 
+db.getCollectionInfos();
+db.getCollectionNames()
+
+
+
+# Django with mongodb - (Djongo)
+
+
+python manage.py migrate --database=chat

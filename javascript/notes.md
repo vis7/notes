@@ -1,20 +1,21 @@
 JavaScript can change HTML content.
+```
 <button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'>Click Me!</button>
-
+```
 
 In this case JavaScript changes the value of the src (source) attribute of an image
+```
 <button onclick="document.getElementById('myImage').src='pic_bulbon.gif'">Turn on the light</button>
+```
+
+var have global scope. let have block scope
 
 
-var have global scope
-let have block scope
-
-
-var can be redeclared, it reset the value
-let can not be redeclare
+var can be redeclared, it reset the value. let can not be redeclare
 
 
 using var Redeclaring a variable inside a block will also redeclare the variable outside the block:
+
 using let Redeclaring a variable inside a block will not redeclare the variable outside the block:
 
 JavaScript Hoisting refers to the process whereby the interpreter appears to move the declaration of functions, variables, classes, or imports to the top of their scope, prior to execution of the code.
@@ -602,18 +603,552 @@ If no matching cases are found, the program continues to the default label.
 If no default label is found, the program continues to the statement(s) after the switch.
 
 
+# loop
+## for loop
+for (let i = 0; i < cars.length; i++) {
+  text += cars[i] + "<br>";
+}
+
+
+## for in loop
+const person = {fname:"John", lname:"Doe", age:25}; // It is object but can iterate over loop too
+
+let text = "";
+for (let x in person) {
+  text += person[x];
+}
+
+Do not use for in over an Array if the index order is important. The index order is implementation-dependent, and array values may not be accessed in the order you expect. It is better to use a for loop, a for of loop, or Array.forEach() when the order is important.
+
+## Array.forEach()
+The forEach() method calls a function (a callback function) once for each array element.
+
+```
+const numbers = [45, 4, 9, 16, 25];
+
+let txt = "";
+numbers.forEach(myFunction);
+
+function myFunction(value, index, array) {
+  txt += value;
+}
+```
+
+## The For Of Loop
+It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more:
+```
+const cars = ["BMW", "Volvo", "Mini"];
+
+let text = "";
+for (let x of cars) {
+  text += x;
+}
+```
+
+## The While Loop
+while (i < 10) {
+  text += "The number is " + i;
+  i++;
+}
+
+## The Do While Loop
+do {
+  text += "The number is " + i;
+  i++;
+}
+while (i < 10);
+
+# break and continue
+The break statement "jumps out" of a loop. The continue statement "jumps over" one iteration in the loop.
+
+for (let i = 0; i < 10; i++) {
+  if (i === 3) { break; }
+  text += "The number is " + i + "<br>";
+}
+
+
+for (let i = 0; i < 10; i++) {
+  if (i === 3) { continue; }
+  text += "The number is " + i + "<br>";
+}
+
+The continue statement (with or without a label reference) can only be used to skip one loop iteration.
+
+The break statement, without a label reference, can only be used to jump out of a loop or a switch.
+
+With a label reference, the break statement can be used to jump out of any code block:
+
+
+# Home made iterable 
+This return done too, so it can be used in for of loop too
+
+// Create an Object
+myNumbers = {};
+
+// Make it Iterable
+myNumbers[Symbol.iterator] = function() {
+  let n = 0;
+  done = false;
+  return {
+    next() {
+      n += 10;
+      if (n == 100) {done = true}
+      return {value:n, done:done};
+    }
+  };
+}
+
+
+let iterator = myNumbers[Symbol.iterator]();
+
+while (true) {
+  const result = iterator.next();
+  if (result.done) break;
+  // Any Code Here
+}
+
+# set
+you can create empty set and add value
+
+Can pass array inside set constuctor to create new set
+const letters = new Set(["a","b","c"]);
+
+letters.add("a");
+
+
+// add variable
+const a = "a";
+letters.add(a);
+
+If you add equal elements, only the first will be saved:
+
+Sets are Objects
+typeof letters;      // Returns object
+letters instanceof Set;  // Returns true
+
+has("a") - to check "a" is present in set or not
+The values() method returns an Iterator object with the values in a Set:
+The keys() method returns an Iterator object with the values in a Set:
+The entries() method returns an Iterator with [value,value] pairs from a Set.
+
+# Map
+A Map holds key-value pairs where the keys can be any datatype. A Map remembers the original insertion order of the keys.
+
+## create
+// Create a Map
+const fruits = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+]);
+
+// Create a Map
+const fruits = new Map();
+
+// Set Map Values. Creating map using set() 
+fruits.set("apples", 500);
+fruits.set("bananas", 300);
+fruits.set("oranges", 200);
+
+The set() method can also be used to change existing Map values:
+  fruits.set("apples", 200);
+The get() method gets the value of a key in a Map:
+  fruits.get("apples");    // Returns 500
+
+
+// Returns object:
+typeof fruits;
+
+// Returns true:
+fruits instanceof Map;
+
+
+## Object	
+Not directly iterable
+Do not have a size property	
+Keys must be Strings (or Symbols)	
+Keys are not well ordered	
+Have default keys	
+
+
+## Map
+Directly iterable
+Have a size property
+Keys can be any datatype
+Keys are ordered by insertion
+Do not have default keys
+
+
+The size property returns the number of elements in a map:
+The delete() method removes a map element:
+The clear() method removes all the elements from a map:
+The has() method returns true if a key exists in a map:
+The forEach() method invokes a callback for each key/value pair in a map:
+The entries() method returns an iterator object with the [key,values] in a map:
+The keys() method returns an iterator object with the keys in a map:
+The values() method returns an iterator object with the values in a map:
+
+
+Being able to use objects as keys is an important Map feature.
+// Create Objects
+const apples = {name: 'Apples'};
+const bananas = {name: 'Bananas'};
+const oranges = {name: 'Oranges'};
+
+// Create a Map
+const fruits = new Map();
+
+// Add new Elements to the Map
+fruits.set(apples, 500);
+fruits.set(bananas, 300);
+fruits.set(oranges, 200);
+
+
+The Map.groupBy() method groups elements of an object according to string values returned from a callback function. The Map.groupBy() method does not change the original object.
+
+// Create an Array
+const fruits = [
+  {name:"apples", quantity:300},
+  {name:"bananas", quantity:500},
+  {name:"oranges", quantity:200},
+  {name:"kiwi", quantity:150}
+];
+
+// Callback function to Group Elements
+function myCallback({ quantity }) {
+  return quantity > 200 ? "ok" : "low";
+}
+
+// Group by Quantity
+const result = Map.groupBy(fruits, myCallback);
 
 
 
+The difference between Object.groupBy() and Map.groupBy() is: Object.groupBy() groups elements into a JavaScript object. Map.groupBy() groups elements into a Map object.
+
+
+# typeof
+In JavaScript, null is a primitive value. However, typeof returns "object". This is a well-known bug in JavaScript and has historical reasons.
+
+A complex data type can store multiple values and/or different data types together.
+
+JavaScript has one complex data type:
+
+object
+All other complex types like arrays, functions, sets, and maps are just different types of objects.
+
+The typeof operator returns only two types:
+
+object
+function
+
+
+typeof {name:'John'}   // Returns object
+typeof [1,2,3,4]       // Returns object
+typeof new Map()       // Returns object
+typeof new Set()       // Returns object
+
+typeof function (){}   // Returns function
+
+
+How to know if a variable is an array?
+
+// Create an Array
+const fruits = ["apples", "bananas", "oranges"];
+Array.isArray(fruits);
+
+The instanceof operator returns true if an object is an instance of a specified object type:
+// Create a Date
+const time = new Date();
+
+(time instanceof Date);
 
 
 
+The typeof of an undefined variable is undefined.
+The typeof of a variable with no value is undefined. The value is also undefined.
+Any variable can be emptied, by setting the value to undefined. The type will also be undefined.
+
+An empty value has nothing to do with undefined. An empty string has both a legal value and a type.
+let car = "";
+
+The value is:
+The type is: string
+
+
+In JavaScript null is "nothing". It is supposed to be something that doesn't exist. Unfortunately, in JavaScript, the data type of null is an object. You can empty an object by setting it to null: You can also empty an object by setting it to undefined:
+
+Difference Between Undefined and Null
+undefined and null are equal in value but different in type:
+
+typeof undefined      // undefined
+typeof null           // object
+
+null === undefined    // false
+null == undefined     // true
+
+The constructor property returns the constructor function for all JavaScript variables.
+// Returns function Object() {[native code]}:
+{name:'John',age:34}.constructor
+
+// Returns function Array() {[native code]}:
+[1,2,3,4].constructor
+
+// Returns function Date() {[native code]}:
+new Date().constructor
+
+// Returns function Set() {[native code]}:
+new Set().constructor
+
+// Returns function Map() {[native code]}:
+new Map().constructor
+
+// Returns function Function() {[native code]}:
+function () {}.constructor
+
+
+With the constructor, you can check if an object is an Array:
+(myArray.constructor === Array);  
+(myDate.constructor === Date);
+
+The data type of NaN (Not a Number) is number !
+
+
+The void operator evaluates an expression and returns undefined. This operator is often used to obtain the undefined primitive value, using "void(0)" (useful when evaluating an expression without using the return value).
+
+<a href="javascript:void(0);">
+  Useless link
+</a>
+
+<a href="javascript:void(document.body.style.backgroundColor='red');">
+  Click me to change the background color of body to red
+</a>
+
+
+JavaScript variables can be converted to a new variable and another data type:
+
+By the use of a JavaScript function
+Automatically by JavaScript itself
+
+
+A non numeric string (like "John") converts to NaN (Not a Number).
+Number("John")
+
+Number()	Returns a number, converted from its argument
+parseFloat()	Parses a string and returns a floating point number
+parseInt()	Parses a string and returns an integer
+
+
+The global method String() can convert numbers to strings.
+String(x)         // returns a string from a number variable x
+String(123)       // returns a string from a number literal 123
+
+The Number method toString() does the same.
+x.toString()
+(123).toString()
+
+## Date methods
+getDate()	Get the day as a number (1-31)
+getDay()	Get the weekday a number (0-6)
+getFullYear()	Get the four digit year (yyyy)
+getHours()	Get the hour (0-23)
+getMilliseconds()	Get the milliseconds (0-999)
+getMinutes()	Get the minutes (0-59)
+getMonth()	Get the month (0-11)
+getSeconds()	Get the seconds (0-59)
+getTime()	Get the time (milliseconds since January 1, 1970)
+
+
+Number(false)     // returns 0
+Number(true)      // returns 1
+
+String(false)      // returns "false"
+String(true)       // returns "true"
+
+false.toString()   // returns "false"
+true.toString()    // returns "true"
+
+
+## Automatic Type conversion
+When JavaScript tries to operate on a "wrong" data type, it will try to convert the value to a "right" type. The result is not always what you expect:
+
+5 + null    // returns 5         because null is converted to 0
+"5" + null  // returns "5null"   because null is converted to "null"
+"5" + 2     // returns "52"      because 2 is converted to "2"
+"5" - 2     // returns 3         because "5" is converted to 5
+"5" * "2"   // returns 10        because "5" and "2" are converted to 5 and 2
+
+JavaScript automatically calls the variable's toString() function when you try to "output" an object or a variable:
+
+https://www.w3schools.com/js/js_type_conversion.asp # see type conversion table
+
+# Destructing assginment syntaxt
+// Create an Object
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50
+};
+
+// Destructuring
+let {firstName, lastName} = person;
+
+
+It can also unpack arrays and any other iterables:
+let [firstName, lastName] = person;
+
+The order of the properties does not matter:
+
+Object Property alias
+// Destructuring
+let {lastName : name} = person;
+
+
+# Exception Handling
+JavaScript will actually create an Error object with two properties: name and message.
+
+
+# Scope
+A variable declared outside a function, becomes GLOBAL.
+
+let carName = "Volvo";
+// code here can use carName
+
+function myFunction() {
+// code here can also use carName
+}
+
+Variables declared Globally (outside any function) have Global Scope.
+
+Global variables can be accessed from anywhere in a JavaScript program. Variables declared with var, let and const are quite similar when declared outside a block. They all have Global Scope:
+
+
+If you assign a value to a variable that has not been declared, it will automatically become a GLOBAL variable. This code example will declare a global variable carName, even if the value is assigned inside a function.
+
+myFunction();
+
+// code here can use carName
+
+function myFunction() {
+  carName = "Volvo";
+}
+
+In HTML, the global scope is the window object. Global variables defined with the var keyword belong to the window object:
+var carName = "Volvo";
+// code here can use window.carName
+
+
+Global variables defined with the let keyword do not belong to the window object:
+
+## warning
+Do NOT create global variables unless you intend to.
+
+Your global variables (or functions) can overwrite window variables (or functions).
+Any function, including the window object, can overwrite your global variables and functions.
 
 
 
+# Hoisting
+Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function).
+
+JavaScript only hoists declarations, not initializations.
+
+To avoid bugs, always declare all variables at the beginning of every scope.
+
+# Strict Mode
+"use strict"; Defines that JavaScript code should be executed in "strict mode". It helps you to write cleaner code. JavaScript in strict mode does not allow variables to be used if they are not declared.
+
+```
+"use strict";
+x = 3.14;       // This will cause an error because x is not declared
+```
+
+Strict mode changes previously accepted "bad syntax" into real errors.
+
+As an example, in normal JavaScript, mistyping a variable name creates a new global variable. In strict mode, this will throw an error, making it impossible to accidentally create a global variable.
+
+In normal JavaScript, a developer will not receive any error feedback assigning values to non-writable properties.
+
+In strict mode, any assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object, will throw an error.
+
+Deleting a variable (or object) is not allowed
+Deleting a function is not allowed.
+Duplicating a parameter name is not allowed:
+Octal numeric literals are not allowed:
+  let x = 010;             // This will cause an error
+Octal escape characters are not allowed:
+  let x = "\010";            // This will cause an error
+Writing to a read-only property is not allowed:
+
+  "use strict";
+const obj = {};
+Object.defineProperty(obj, "x", {value:0, writable:false});
+
+obj.x = 3.14;            // This will cause an error
 
 
+# this
+The this keyword refers to different objects depending on how it is used:
 
+- In an object method, this refers to the object.
+- Alone, this refers to the global object.
+- In a function, this refers to the global object.
+- In a function, in strict mode, this is undefined.
+- In an event, this refers to the element that received the event.
+- Methods like call(), apply(), and bind() can refer this to any object.
+
+
+this is not a variable. It is a keyword. You cannot change the value of this.
+
+In a browser window the global object is [object Window]:
+
+
+# Arrow Function
+Before Arrow:
+hello = function() {
+  return "Hello World!";
+}
+
+With Arrow Function:
+hello = () => {
+  return "Hello World!";
+}
+
+# class
+A JavaScript class is not an object. It is a template for JavaScript objects.
+
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+}
+
+# JSON
+use the JavaScript built-in function JSON.parse() to convert the string into a JavaScript object:
+let text = '{ "employees" : [' +
+'{ "firstName":"John" , "lastName":"Doe" },' +
+'{ "firstName":"Anna" , "lastName":"Smith" },' +
+'{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+
+const obj = JSON.parse(text);
+
+// use object above
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML =
+obj.employees[1].firstName + " " + obj.employees[1].lastName;
+</script>
+
+
+# recaptulate
+Type Conversion
+Destructuring
+bitwise
+Precedence
+strict mode
+class - on wards
 
 
 # revise more from source

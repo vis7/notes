@@ -7,4 +7,9 @@ To collect data from multiple children, or to have two child components communic
 
 The DOM <button> element’s onClick attribute has a special meaning to React because it is a built-in component. For custom components like Square, the naming is up to you. We could give any name to the Square’s onClick prop or Board’s handleClick method, and the code would work the same. In React, it’s conventional to use on[Event] names for props which represent events and handle[Event] for the methods which handle the events.
 
+It’s strongly recommended that you assign proper keys whenever you build dynamic lists.
+
+React will update only the properties mentioned in setState method leaving the remaining state as is
+
+"props" stands for properties. Props are arguments passed into React components. Props are passed to components via HTML attributes.
 

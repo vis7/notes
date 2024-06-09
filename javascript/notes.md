@@ -1205,3 +1205,90 @@ class - on wards
 
 # revise more from source
 event
+
+
+# HTML DOM (Document Object Model)
+The HTML DOM is a standard for how to get, change, add, or delete HTML elements.
+
++ An HTMLCollection, NodeList are NOT an array! An HTMLCollection may look like an array, but it is not. You can loop through the list and refer to the elements with a number (just like an array). However, you cannot use array methods like valueOf(), pop(), push(), or join() on an HTMLCollection.
+
+
+In the DOM, all HTML elements are defined as objects. The programming interface is the properties and methods of each object. A property is a value that you can get or set (like changing the content of an HTML element). A method is an action you can do (like add or deleting an HTML element).
+```
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = "Hello World!";
+</script>
+
+</body>
+</html>
+```
+In the example above, getElementById is a method, while innerHTML is a property.
+
+
+Read this - https://www.w3schools.com/js/js_htmldom_document.asp
+
+
+If you want to find all HTML elements that match a specified CSS selector (id, class names, types, attributes, values of attributes, etc), use the querySelectorAll() method.
+This example returns a list of all <p> elements with class="intro".
+```
+const x = document.querySelectorAll("p.intro");
+```
+
+
+To change the value of an HTML attribute, use this syntax:
+```
+document.getElementById(id).attribute = new value; // syntaxt
+document.getElementById("myImage").src = "landscape.jpg"; // eg
+```
+
+## validation
+https://www.w3schools.com/js/js_validation.asp
+
+
+## Changing HTML Style
+To change the style of an HTML element, use this syntax:
+```
+document.getElementById(id).style.property = new style // syntaxt
+document.getElementById("p2").style.color = "blue"; // eg.
+```
+
+## Animation
+https://www.w3schools.com/js/js_htmldom_animate.asp
+
+## Events
+https://www.w3schools.com/jsref/dom_obj_event.asp
+
+
+
+# The Difference Between an HTMLCollection and a NodeList
++ An HTMLCollection is a collection of document elements. A NodeList is a collection of document nodes (element nodes, attribute nodes, and text nodes).
++ HTMLCollection items can be accessed by their name, id, or index number. NodeList items can only be accessed by their index number.
++ An HTMLCollection is always a live collection. Example: If you add a <li> element to a list in the DOM, the list in the HTMLCollection will also change. A NodeList is most often a static collection. Example: If you add a <li> element to a list in the DOM, the list in NodeList will not change.
++ The getElementsByClassName() and getElementsByTagName() methods return a live HTMLCollection. The querySelectorAll() method returns a static NodeList. The childNodes property returns a live NodeList.
+
+## Create New Element
+```
+<div id="div1">
+  <p id="p1">This is a paragraph.</p>
+  <p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+const para = document.createElement("p");
+const node = document.createTextNode("This is new.");
+para.appendChild(node);
+
+const element = document.getElementById("div1");
+element.appendChild(para);
+</script>
+```
+
+
+# JS BOM (Browser Object Model)
+
+

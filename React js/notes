@@ -1,0 +1,38 @@
+# why react
+It's composable
+It's declaritive 
+    Declaritive - what should be done ? - Just tell me what to do and I'll worry about how I get it done
+    Imperitive - How it should be done ? - Describe to me every step on how to do something, and I will do it
+
+It's hirable
+It's Activly maintained by skilled people
+
+# JSX
+
+
+# Custom components
+
+
+
+
+
+ReactDom.render(<h1>Hello Everyone</h1>, document.getElementById("demo"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 
+you need to believe in process, have some patience, tutor you are learning
+

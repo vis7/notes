@@ -13,3 +13,8 @@ React will update only the properties mentioned in setState method leaving the r
 
 "props" stands for properties. Props are arguments passed into React components. Props are passed to components via HTML attributes.
 
+
+Updating the state causes the component to re-render
+#####################################################################################
+
+

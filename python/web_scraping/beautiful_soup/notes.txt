@@ -1,0 +1,9 @@
+make sure that you’re not violating any Terms of Service before you start a large-scale project.
+
+Play around and explore! The more you get to know the page you’re working with, the easier it will be to scrape it.
+
+
+two of these more challenging situations.
+
+Hidden Websites
+Dynamic Websites

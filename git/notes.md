@@ -61,6 +61,13 @@ Host github.com-vis-websmith
 	IdentityFile ~/.ssh/id_rsa_websmith
 ```
 
+
+To test that your keys added in github successfully
+```
+ssh -T git@github.com-vis-websmith
+```
+
+
 # Cloning Repository
 ```
 # syntax

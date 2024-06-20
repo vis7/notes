@@ -24,3 +24,48 @@ Another method is to clone repo in local then add (move) your code in repository
 ```
 git rm --cached -r */*/__pycache__/
 ```
+
+# 
+Set remote URL
+```
+git remote set-url origin https://github.com/user/repo2.git
+```
+
+Add Remote URL
+```
+git remote add origin https://github.com/user/repo2.git
+```
+
+# Configure Multiple Github accounts
+generate keys
+```
+ssh-keygen -t rsa -C "Your Email Address"
+```
+
+- Public key will be added in github (.pub file)
+- Private key will be reside in you PC
+
+
+config
+```
+# vis7 - keep 'Host' as it is for default account
+Host github.com
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_rsa
+
+# vis-websmith
+Host github.com-vis-websmith
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_rsa_websmith
+```
+
+# Cloning Repository
+```
+# syntax
+git clone git@<HostName>:username/repository_name.git
+
+git clone "git@github.com:vis7/notes.git"
+git clone "git@github.com-vis-websmith:vis-websmith/scrapping_pharma_info.git"
+```

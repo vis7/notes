@@ -63,3 +63,7 @@ user verification using mobile number
 chat application
 mongodb with django 
 
+# Iterate through two list together
+for f, b in list(zip(foo, bar)):
+    print(f, b)
+

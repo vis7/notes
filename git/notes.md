@@ -36,6 +36,12 @@ Add Remote URL
 git remote add origin https://github.com/user/repo2.git
 ```
 
+To see URL
+```
+git remote -v
+```
+
+
 # Configure Multiple Github accounts
 generate keys
 ```

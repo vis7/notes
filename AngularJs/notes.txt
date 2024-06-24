@@ -1,0 +1,119 @@
+- check node version
+node --version
+
+
+# angular
++ for Creating single page apps
+
+
+Angular is development platform built on typescirpt. Which include
+    - Component based framework
+    - A collection of well integrated libreries that cover wide variety of features
+    - A suit of developer tools to help you develop, build, test and update your code
+
+
+# AngurlarJS vs Angular (TypeScript)
+- AnuglarJS initially (after it transition to typescirpt due to many drawbacks it is called Angular 2+, now it is Angular)
+- since version 9 the angular team has moved all new applications to the Ivy compilier and runtime
+- Each version is expected to be backward compatible with prior release
+- The angular development team has pledge to do twice a year upgrades
+
+
+# why 
+HTML is great for declaring static documents. but it falters when we try to use it for declaring dynamic views in web applications
+
+AngularJS lets you extend HTML Vocabulary for your application. The resulting environment is extra ordinarirly expressive, readable and quick to develop
+
+
+# features
+Data Binding
+Directives
+Localization
+Reusable Components
+
+Cross platform
+Speed and performance
+flexible development
+Productivity
+
+
+# Typescript
+
+
+Angular CLI
+## Install
+npm install -g @angular/cli
+
+ng - Angular
+
+ng --version
+
+ng help serve 
+
+
+ng new my-first-project
+
+To run
+ng serve -o
+
+
+
+Angular Matirial
+
+help you design appliation in structured manner, that attracts users and make it easier to access elements or the components present in your application, it helps in designing application beautifully with unique styles and shapes
+
+ng add @angular/material
+
+
+ng modules - basic building blocks
+
+
+# create component
+ng g c <component_name>
+g - generate
+c - component
+
+
+PWA - Progressive web app - when visite site from mobile, we see link, which suggest install and on clicking it, it work as if we have app.
+
+
+# Typesciprt
+## What
+- A Strongly typed programming language (need to specify type of variable, and it can only hold that data type value)
+- created and maintained by microsoft
+- superset of javascript
+
+# Why
+- Compiles to javascript
+- Keeps your code evergreen
+- supported by all major libreries and framework
+
+## Type safety
+- keeps your application free from type errors
+- keeps your js code free from undefined and null values
+- in typescript types are stripped when your code is converted to js
+
+csc - compiler of typescirpt
+
+#
+npm init - create default
+
+npm install typescript # install typescript
+
+tsc --init # create typescript config file
+
+tsc # command to compile ts code into js code
+
+# Single Page Application (SPA)
++ You can use morden framework like Angular, React, Vue to create SPA
++ SPA do not make requests to server for every URL requests
+
+
++ Angular has Routing functionlity to create SPA
++ Angular also support SSR (Server Side Rendering) which supports SPA
+
+33.50
+
+
+
+

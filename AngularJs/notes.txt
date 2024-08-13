@@ -112,7 +112,10 @@ tsc # command to compile ts code into js code
 + Angular has Routing functionlity to create SPA
 + Angular also support SSR (Server Side Rendering) which supports SPA
 
-33.50
+# software Installation
+
+node js - comes with npm. previously it was seprate, but now nodejs is bundle with npm
+
 
 
 

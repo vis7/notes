@@ -1,3 +1,5 @@
+you need to believe in process, have some patience, tutor you are learning
+
 # why react
 It's composable
 It's declaritive 
@@ -16,23 +18,73 @@ It's Activly maintained by skilled people
 
 
 
+
 ReactDom.render(<h1>Hello Everyone</h1>, document.getElementById("demo"));
+- what i want to render
+- where i want to render
 
 
 
++ props stands for properties 
+
+you can't render mulitple element using render, you need to  wrap them around before rending eg. in side div
 
 
 
+Static pages with CDN
+Info site without CDN
+
+
+# local setup
+need to have node js and npm in our machine
+
+install node js with nvm - node version manager it makes switching between node version easy
+
+# to create new react project
+npx create-react-app my-app
+or
+yarn create react-app my-app
+
+
+# CSS (tough things need to learn)
+flexbox, layout, display
+flexbox - to put everything in line
+margin, box
+
+
+margin auto, right
+
+
+we need to use pascal case when defining functions in react.
+
+we need 
+import React from 'react'
+because we are using JSX syntax, which is defined inside React. so evenif we are not using it explictly, we still need to import it
+
+
+we can write javascirpt inside JSX inside {}
+
+# data driven react
+
+
+# another good js reference 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export
+https://javascript.info/import-export
 
 
 
+RFC - shortcut to create react components 
+
+++++ promise
 
 
+const fetchPromise = fetch("https://bar.other");
+
+fetchPromise
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  });
 
 
-
-
-
-# 
-you need to believe in process, have some patience, tutor you are learning
 

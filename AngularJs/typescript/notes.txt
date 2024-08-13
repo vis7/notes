@@ -1,0 +1,22 @@
+# datatypes
+string
+number
+boolean
+array
+enum
+tuple
+any
+void
+never
+
+# Type Inference
+type scirpt has ability to infer data type of variable from value we assign. But always assgin data type, don't ues Inference.
+
+
+to run code 
+tsc // to convert ts code to js
+node <filename without extention> // run js code
+
+46:10
+
+

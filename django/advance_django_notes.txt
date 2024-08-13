@@ -129,3 +129,6 @@ class AccountSerializer(MyBaseSerializer):
         model = Account
 
 
+
+Using Djongo (for using mongodb with Django)
+- https://www.freecodecamp.org/news/using-django-with-mongodb-by-adding-just-one-line-of-code-c386a298e179/

@@ -41,6 +41,9 @@ To see URL
 git remote -v
 ```
 
+# config git params such as email, name
+git config user.email "bob@example.com"
+
 
 # Configure Multiple Github accounts
 generate keys
@@ -82,3 +85,14 @@ git clone git@<HostName>:username/repository_name.git
 git clone "git@github.com:vis7/notes.git"
 git clone "git@github.com-vis-websmith:vis-websmith/scrapping_pharma_info.git"
 ```
+
+# git seting parameter for repo
+git config --global user.name "Full Name"
+git config --global user.email "email@address.com"
+
+# check parameter
+git config user.name
+git config user.email
+
+git config --list # to see all paramers
+

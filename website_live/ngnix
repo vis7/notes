@@ -1,0 +1,31 @@
+# gunicorn.service file for backend and frontend live together
+# source (steps followed) - https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu
+server {
+    listen 80;
+    server_name 15.207.111.79;
+
+    # Serve the Angular frontend
+    root /var/www/dist/my-app/browser;  # Path to your Angular app's build files (folder which contain index.html)
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Serve static files for Django
+    location /static/ { # path to backend project for static file
+        root /home/ubuntu/drug_site_info_backend_project/Pharsight_SiteEstablishment;
+    }
+
+    # Pass requests to Django backend
+    location /api/ { # backend will be live on "/api/" prefix
+        include proxy_params;
+        proxy_pass http://unix:/run/gunicorn.sock;
+    }
+
+    # Handle favicon (optional)
+    location = /favicon.ico {
+        access_log off;
+        log_not_found off;
+    }
+}

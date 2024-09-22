@@ -1,0 +1,141 @@
+# important filters
+
+
+# example
+        if manufactureer_start:
+            pipeline = [
+                {
+                    # Stage 1: Match documents where any element in the NDCs.Details array contains the matching Company Name
+                    "$match": {
+                        "NDCs.Details.Company Name": {
+                            "$regex": f"^{manufactureer_start}",
+                            "$options": "i"
+                        }
+                    }
+                },
+                {
+                    # Stage 2: Project the fields and filter the NDCs array to include only matching Details elements
+                    "$project": {
+                        "_id": 1,  # Include the document ID
+                        # "NDA number": 1,
+                        "ANDA No": 1,
+                        "Brand Name": 1,
+                        # "Active Ingredient": 1,
+                        "Dosage forms": 1,
+                        # "Innovator / Applicant Holder": 1,
+                        # "Therapeutic class / AHFS Codes": 1,
+                        "NDCs": {
+                            "$map": {
+                                "input": {
+                                    "$filter": {
+                                        "input": "$NDCs",
+                                        "as": "ndc",
+                                        "cond": {
+                                            "$gt": [
+                                                {
+                                                    "$size": {
+                                                        "$filter": {
+                                                            "input": "$$ndc.Details",
+                                                            "as": "detail",
+                                                            "cond": {
+                                                                "$regexMatch": {
+                                                                    "input": "$$detail.Company Name",
+                                                                    "regex": f"^{manufactureer_start}",
+                                                                    "options": "i"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                0
+                                            ]
+                                        }
+                                    }
+                                },
+                                "as": "filteredNDC",
+                                "in": {
+                                    "NDC": "$$filteredNDC.NDC",
+                                    "Details": {
+                                        "$filter": {
+                                            "input": "$$filteredNDC.Details",
+                                            "as": "detail",
+                                            "cond": {
+                                                "$regexMatch": {
+                                                    "input": "$$detail.Company Name",
+                                                    "regex": f"^{manufactureer_start}",
+                                                    "options": "i"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+
+# Teritory wise search from NDC Number Pipeline
+        if match_conditions:
+            pipeline = [
+                {
+                    # Stage 1: Match documents where the country, state, or city matches
+                    "$match": {
+                        "$and": match_conditions
+                    }
+                },
+                {
+                    # Stage 2: Project the fields and filter the NDCs array to include only matching Details elements
+                    "$project": {
+                        "NDCs": {
+                            "$map": {
+                                "input": {
+                                    "$filter": {
+                                        "input": "$NDCs",
+                                        "as": "ndc",
+                                        "cond": {
+                                            "$gt": [
+                                                {
+                                                    "$size": {
+                                                        "$filter": {
+                                                            "input": "$$ndc.Details",
+                                                            "as": "detail",
+                                                            "cond": {
+                                                                "$and": [
+                                                                    {"$eq": ["$$detail.country", country]} if country else {"$const": True},
+                                                                    {"$eq": ["$$detail.state", state]} if state else {"$const": True},
+                                                                    {"$eq": ["$$detail.city", city]} if city else {"$const": True}
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                0
+                                            ]
+                                        }
+                                    }
+                                },
+                                "as": "filteredNDC",
+                                "in": {
+                                    "NDC": "$$filteredNDC.NDC",
+                                    "Details": {
+                                        "$filter": {
+                                            "input": "$$filteredNDC.Details",
+                                            "as": "detail",
+                                            "cond": {
+                                                "$and": [
+                                                    {"$eq": ["$$detail.country", country]} if country else {"$const": True},
+                                                    {"$eq": ["$$detail.state", state]} if state else {"$const": True},
+                                                    {"$eq": ["$$detail.city", city]} if city else {"$const": True}
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+
+

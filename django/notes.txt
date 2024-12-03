@@ -164,3 +164,75 @@ Constructing queries using Djongo is much easier compared to writing lengthy Pym
 
 You no longer need to use the shell to inspect your data. By using the Admin package, you can access and modify data directly from the browser. Djongo includes handy UI elements that help represent MongoDB documents on the browser.
 
+
+# unorganized
+# learning
+https://docs.djangoproject.com/en/5.0/topics/db/transactions/
+https://realpython.com/transaction-management-with-django-1-6/
+
+got through djanog topics, drf documentation and do practicals of it
+
+
+# Read
+https://docs.celeryq.dev/en/stable/django/first-steps-with-django.html
+https://realpython.com/learning-paths/python-interview/
+
+
+#Code war challenge
+https://www.codewars.com/kata/52d1bd3694d26f8d6e0000d3/train/python
+https://www.codewars.com/kata/52ec24228a515e620b0005ef/train/python
+https://www.codewars.com/kata/52608f5345d4a19bed000b31/train/python
+https://www.codewars.com/kumite/61656cbeffb47c003f8ed1a2?sel=6165700d762e9e0027c53fd9 (understand it)
+
+import hashlib
+ 
+prefix = "item"
+counter = 1
+ 
+data_to_hash = f"{prefix}_{counter}".encode('utf-8')
+hashed_string = hashlib.sha256(data_to_hash).hexdigest()
+ 
+print(hashed_string)
+
+https://django-mptt.readthedocs.io/en/latest/
+
+https://docs.sentry.io/platforms/python/
+
+
+python manage.py showmigrations
+python manage.py migrate vendor 0032_auto_20230925_0844 --fake
+ 
+to solve migration error, manually faking migration
+
+
+Vue Starting point
+https://vuejs.org/guide/quick-start.html
+https://www.w3schools.com/vue/
+
+https://github.com/PacktPublishing/Django-4-by-example
+ 
+https://dl.ebooksworld.ir/books/Django.4.By.Example.4th.Edition.Antonio.Mele.Bob.Belderbos.Packt.9781801813051.EBooksWorld.ir.pdf
+
+
+https://books.agiliq.com/en/latest/README.html
+
+
+is it okay to force partner for improvement
+https://www.verywellmind.com/when-your-spouse-doesnt-want-change-2302197
+ 
+you either accept to learn with their flaws
+decide where you can make compromise and where you don't
+ 
+Adapting oneselve to overcome your own flaws and learn to live with your partners is the key to have long lasting relationship. but  it isn't always possible to accept every flow of partner
+
+
+
+https://github.com/PacktPublishing/Django-4-by-example
+ 
+https://dl.ebooksworld.ir/books/Django.4.By.Example.4th.Edition.Antonio.Mele.Bob.Belderbos.Packt.9781801813051.EBooksWorld.ir.pdf
+
+https://www.scmp.com/lifestyle/family-relationships/article/3088618/how-deal-your-partners-flaws-and-strengthen-love-you
+
+https://www.joinonelove.org/learn/handling_conflict/
+
+

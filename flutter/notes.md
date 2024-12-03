@@ -19,6 +19,9 @@ goal_tracker/android/gradle.properties
 goal_tracker/android/app/build.gradle 
 
 
+flutter build apk --release --split-per-abi # command to build apk
+
+
 # refenrece
 https://chatgpt.com/c/66efdbb9-7fe4-8012-ab2c-ff551f52bfb5
 
